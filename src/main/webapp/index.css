@@ -1,5 +1,5 @@
 @charset "ISO-8859-1";
-body {}
+
 
 .text-info {
     margin-top: -50px;
@@ -10,7 +10,7 @@ body {}
     background-color: grey;
     left: 500px;
     top: 100px;
-    padding: 30px;
+    padding: 50px;
 }
 
 .c_login {
