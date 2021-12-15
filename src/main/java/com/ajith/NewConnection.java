@@ -11,6 +11,7 @@ public class NewConnection {
 		Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
 		
 		String query="insert into users_table (first_name,email,phone_number,password,confirm_password) values(?,?,?,?,?)";
+		String query2="commit";
 		PreparedStatement pre=con.prepareStatement(query);
 		pre.setString(1, p.getName());
 		pre.setString(2, p.getEmail());
@@ -19,6 +20,7 @@ public class NewConnection {
 		pre.setString(5, p.getConfirm_password());
 		System.out.println("print");
 		pre.executeUpdate();
+		pre.executeUpdate(query2);
 		System.out.println("print1");
 		//System.out.println(i);
 	}
