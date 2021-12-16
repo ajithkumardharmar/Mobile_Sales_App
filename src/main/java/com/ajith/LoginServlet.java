@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 @WebServlet("/add1")
 public class LoginServlet extends HttpServlet {
-	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException {
+	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException {
 		PrintWriter out=res.getWriter();
 		
 		String username=req.getParameter("username");

@@ -39,7 +39,7 @@
                 
                 <label for="">Email:</label><br>
                 <input class="c_user2"  name="email"  
-                pattern="[a-z][a-z0-9_.]+@[a-z0-9.]+[.][a-z]+" type="text"   title="Enter valid email ex(example12@gmail.com)" required><br><br>
+                pattern="[a-z][a-z0-9_.]+@[a-z0-9.]+[.][a-z]+" type="email"   title="Enter valid email ex(example12@gmail.com)" required><br><br>
                 
               	<label for="">Phone number:</label><br>
                 <input class="c_user2" name="phone_number" type="text"
@@ -47,14 +47,14 @@
                 
                 <label for="">Password:</label><br>
                 <input class="c_user2" id="pwd1" name="password" type="password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                pattern="(?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                 title="Enter atleast one upper case and one lower case and one number ,and atleast 8 or more character" required><br><br>
                
                 <label for="">Confirm Password:</label><br>
                 <input class="c_user2" id="pwd2" name="confirm_password" type="password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                pattern="((?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                 title="Enter atleast one upper case and one lower case and one number ,and atleast 8 or more character" required><br><br>
-                <p id="pws" style="color: red;"></p><br>
+                <p id="pws" style="color: gold;"></p><br>
                 <button class="b_reg">Register</button>
                 
             </form>

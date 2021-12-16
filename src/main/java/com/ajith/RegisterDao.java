@@ -36,6 +36,11 @@ public class RegisterDao {
 	public void setConfirm_password(String confirm_password) {
 		this.confirm_password = confirm_password;
 	}
+	@Override
+	public String toString() {
+		return "RegisterDao [name=" + name + ", email=" + email + ", phone_number=" + phone_number + ", password="
+				+ password + ", confirm_password=" + confirm_password + "]";
+	}
 	public RegisterDao(String name, String email, Long phone_number, String password, String confirm_password) {
 		super();
 		this.name = name;

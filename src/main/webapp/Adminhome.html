@@ -13,9 +13,7 @@
             background-color: bisque;
         }
         
-        .body_main1 {
-            background-color: cornsilk;
-        }
+    
         
         ul {
             list-style-type: none;
@@ -44,19 +42,32 @@
         .active {
             background-color: grey;
         }
+        .add_con{
+        position:absolute;
+        left:300px;
+        }
+        *{
+    	margin: 0;
+    	padding: 0;
+		}
+		.btn_add{
+		padding: 12px;
+		background-color: brown;
+		border-radius: 12px;
+		}
     </style>
 
 </head>
 
-<body>
-    <h2 class="h2_1">Online Mobile Shoping</h2>
+<body bgcolor="cornsilk">
+    <h2 class="h2_1">Mobile Sales App</h2>
 
     <div class="top_nav">
 
         <ul>
-            <li><a href="MobilePage.html">Homes</a></li>
-            <li><a href="index.html">Login</a></li>
-            <li><a class="active" href="Admin.html">Admin</a></li>
+            <li><a href="MobilePage.html">Home</a></li>
+            <li><a href="index1.jsp">Login</a></li>
+            <li><a class="active" href="AdminLogin.jsp">Admin</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
             <li style="float: right;"><a href="MobilePage.html">Sign out</a></li>
@@ -68,160 +79,29 @@
 
     <div class="body_main1">
         <br>
-        <br>
+        
+<div class="add_con">
+        <form action="addproduct" method="post"><br>
+			<h2>Add product</h2><br>
+            <label class="add_label1">Product Name :</label>
+            <input type="text" name="product_name" id="brand_textbox" class="add_inputs1"><br><br>
 
-        <form action="">
+            <label class="add_label1">Description :</label>
+            <input type="text" name="description" id="brand_textbox" class="add_inputs1"><br><br>
+            
+            <label class="add_label1">Standard_cost :</label>
+            <input type="text" name="standard_cost" id="brand_textbox" class="add_inputs1"><br><br>
 
-            <label class="add_label1">Brand*</label>
-            <input type="text" name="brand_textbox" id="brand_textbox" class="add_inputs1">
+            <label class="add_label2">List Price :</label>
+            <input type="text" name="list_price" id="brand_textbox" class="add_inputs2"><br><br>
 
-            <label class="add_label1">Product Id*</label>
-            <input type="text" name="id_textbox" id="brand_textbox" class="add_inputs1">
-
-            <label class="add_label1">Product Name*</label>
-            <input type="text" name="product_textbox" id="brand_textbox" class="add_inputs1">
-
-            <br><br>
-
-            <label class="add_label2">Color*</label>
-            <input type="text" name="color_textbox" id="brand_textbox" class="add_inputs2">
-
-            <label class="add_label2">Storage*</label>
-            <input type="text" name="storage_textbox" id="brand_textbox" class="add_inputs2">
-
-            <button type="submit" class="btn3">Add</button>
-        </form>
-
-
-        <div class="move">
-            <br><br>
-            <label for="brand" class="brand_label">Brand*</label>
-
-
-            <input list="brand_list" id="brand_list_id" class="brand_box">
-            <datalist id="brand_list">
-    <option value="Apple">
-    <option value="Samsung">
-    <option value="Redmi">
-    <option value="Realme">
-    <option value="Oppo">
-</datalist>
-
-
-            <label for="product" class="product_label">Product*</label>
-
-            <input list="product_list" id="product_list_id" class="product_box">
-            <datalist id="product_list">
-    <option value="iPhone 13 mini">
-    <option value="iPhone 13">
-    <option value="iPhone 13 pro">
-    <option value="iPhone 13 ProMax">
-</datalist>
-
-
-            <button type="submit" class="btn2">Search</button>
-
-
-            <br><br><br><br><br>
-
-            <table class="table1">
-                <tr>
-                    <th>Product Id</th>
-                    <th>Product Name</th>
-                    <th>Color</th>
-                    <th>Storage</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td>101</td>
-                    <td>iPhone 13 mini</td>
-                    <td>Black</td>
-                    <td>64 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>102</td>
-                    <td>iPhone 13 mini</td>
-                    <td>Black</td>
-                    <td>128 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>103</td>
-                    <td>iPhone 13 mini</td>
-                    <td>Black</td>
-                    <td>264 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>104</td>
-                    <td>iPhone 13 mini</td>
-                    <td>White</td>
-                    <td>64 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>105</td>
-                    <td>iPhone 13 mini</td>
-                    <td>White</td>
-                    <td>128 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>106</td>
-                    <td>iPhone 13 mini</td>
-                    <td>White</td>
-                    <td>256 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>107</td>
-                    <td>iPhone 13 mini</td>
-                    <td>Red</td>
-                    <td>64 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>iPhone 13 mini</td>
-                    <td>Red</td>
-                    <td>128 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>109</td>
-                    <td>iPhone 13 mini</td>
-                    <td>Red</td>
-                    <td>256 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>110</td>
-                    <td>iPhone 13 mini</td>
-                    <td>Green</td>
-                    <td>64 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>111</td>
-                    <td>iPhone 13 mini</td>
-                    <td>Green</td>
-                    <td>128 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-                <tr>
-                    <td>112</td>
-                    <td>iPhone 13 mini</td>
-                    <td>Green</td>
-                    <td>256 GB</td>
-                    <td><button type="submit">edit</button><button type="submit">delete</button></td>
-                </tr>
-
-
-            </table>
-
-        </div>
-    </div>
+            <button type="submit" class="btn_add">Add</button>
+        </form><br><br>
+			<a href="ProductList.jsp">Show All Products</a>
+</div>
+  </div>
+          
+ 
 </body>
 
 </html>

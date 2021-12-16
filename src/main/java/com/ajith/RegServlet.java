@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/reg")
 
 public class RegServlet extends HttpServlet {
-	public void service(HttpServletRequest req,HttpServletResponse res) throws IOException {
+	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException {
 		String name=req.getParameter("name1");
 		String email=req.getParameter("email");
 		Long phone_number=Long.parseLong(req.getParameter("phone_number"));
@@ -28,7 +28,7 @@ public class RegServlet extends HttpServlet {
 		RegisterDao p=new RegisterDao(name, email, phone_number, password, confirm_password);
 		try {
 			NewConnection.Connect1(p);
-			res.sendRedirect("index.html");
+			res.sendRedirect("index1.jsp");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

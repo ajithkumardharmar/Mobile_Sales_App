@@ -20,6 +20,10 @@ public class LoginDao {
 		this.username = username;
 		this.password = password;
 	}
+	@Override
+	public String toString() {
+		return "LoginDao [username=" + username + ", password=" + password + "]";
+	}
 	
 
 }

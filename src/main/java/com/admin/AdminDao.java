@@ -17,6 +17,10 @@ public class AdminDao {
 		AdminUserName = adminUserName;
 		this.password = password;
 	}
+	@Override
+	public String toString() {
+		return "AdminDao [AdminUserName=" + AdminUserName + ", password=" + password + "]";
+	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
