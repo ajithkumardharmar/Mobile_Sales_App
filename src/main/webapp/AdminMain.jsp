@@ -1,11 +1,10 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="ISO-8859-1">
+ <title>AdminPage</title>
 
     <style>
         .h2_1 {
@@ -84,24 +83,33 @@
         <form action="addproduct" method="post"><br>
 			<h2>Add product</h2><br>
             <label class="add_label1">Product Name :</label>
-            <input type="text" name="product_name" id="brand_textbox" class="add_inputs1"><br><br>
+            <input type="text" name="product_name"  pattern="[a-zA-Z]{3,40}" id="brand_textbox" required class="add_inputs1"><br><br>
 
             <label class="add_label1">Description :</label>
-            <input type="text" name="description" id="brand_textbox" class="add_inputs1"><br><br>
+            <input type="text" name="description" id="brand_textbox" pattern="[a-zA-Z\s]{3,60}" required class="add_inputs1"><br><br>
             
             <label class="add_label1">Standard_cost :</label>
-            <input type="text" name="standard_cost" id="brand_textbox" class="add_inputs1"><br><br>
+            <input type="text" name="standard_cost" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="add_inputs1"><br><br>
 
             <label class="add_label2">List Price :</label>
-            <input type="text" name="list_price" id="brand_textbox" class="add_inputs2"><br><br>
+            <input type="text" name="list_price" id="brand_textbox"  pattern="[0-9]{1,8}" maxlength="8" required class="add_inputs2"><br><br>
 
-            <button type="submit" class="btn_add">Add</button>
+            <button type="submit" class="btn_add">Add</button><br>
+            
+            <%if(session.getAttribute("product")!=null){ %>
+            <h4 style="color: green"><%=session.getAttribute("product") %></h4>
+            <%} %>
         </form><br><br>
-			<a href="ProductList.jsp">Show All Products</a>
+        <h2>Delete Product</h2><br>
+        <form action="deleteProduct" method="post">
+        Product Id : <input type="text" name="standard_cost" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="deleteId"><br><br>
+        </form>
+			<a href="ProductList.jsp">Show All Products</a><br><br>
+			<a href="ViewUser.jsp">Show All Users</a><br><br>
+			
 </div>
   </div>
-          
+         <%session.removeAttribute("product"); %> 
  
 </body>
-
 </html>

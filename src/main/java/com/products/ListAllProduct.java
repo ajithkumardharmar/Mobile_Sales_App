@@ -8,7 +8,7 @@ public class ListAllProduct {
 	public static ResultSet viewProduct() {
 		
 		Connection con=ConnectionPro.connect();
-		String query="select product_name,description,standard_price,list_price from products";
+		String query="select pk_product_id,product_name,description,standard_price,list_price from products";
 		ResultSet ns=null;
 		
 		try {

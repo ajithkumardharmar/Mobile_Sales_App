@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
 				}else {
 
 					HttpSession session  = req.getSession();
-					session.setAttribute("LoignResult", "invalid user or password");
+					session.setAttribute("LoginResult", "invalid user or password");
 					res.sendRedirect("index1.jsp");
 					
 					

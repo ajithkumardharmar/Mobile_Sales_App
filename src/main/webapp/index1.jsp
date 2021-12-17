@@ -27,7 +27,7 @@
                 
               
              <% 
-           if(session.getAttribute("LoignResult")!=null){%>
+           if(session.getAttribute("LoginResult")!=null){%>
              
 				<h3  style="margin-left: 50px;color:gold;"><%=session.getAttribute("LoignResult") %></h3>      
 		
@@ -36,7 +36,7 @@
 
             </form>
 				
-
+<%session.removeAttribute("LoginResult"); %>
 
 
 </body>

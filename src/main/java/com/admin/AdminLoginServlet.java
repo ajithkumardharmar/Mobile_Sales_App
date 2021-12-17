@@ -20,13 +20,13 @@ public class AdminLoginServlet extends HttpServlet {
 			boolean flag=ServletConnection.login(admin);
 			out.println(flag);
 			if(flag) {
-				res.sendRedirect("Adminhome.html");
+				res.sendRedirect("AdminMain.jsp");
 				
 			}
 			else {
 				HttpSession session=req.getSession();
 				session.setAttribute("admin","Invalid Email or Password");
-				res.sendRedirect("AdminLogin.jsp");
+				res.sendRedirect("AdminLogin;.jsp");
 				//out.println("Invalid username or Password");
 			}
 			

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Admin_Login_Page</title>
+<title>AdminLoginPage</title>
  <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -31,6 +31,7 @@
  <%} %>
 
             </form>
+            <%session.removeAttribute("admin"); %>
 
 
         </div>

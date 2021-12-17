@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import = "com.products.*" import ="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Product List</title>
 </head>
 <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+}
   .h2_1 {
         text-align: center;
         background-color: bisque;
@@ -59,8 +64,28 @@
         </ul>
 
 
-    </div>
-    <%ListAllProduct obj=new ListAllProduct(); %>
+    </div><br><br><br>
+    <%ResultSet rs=ListAllProduct.viewProduct(); %>
+    <table style="width: 80%;margin-left: 100px;">
+    <tr>
+     <th>Product Id</th>
+    <th>Product Name</th>
+    <th>Description</th>
+    <th>Standard Price</th>
+    <th>List Price</th>
+    </tr>
+    <%while(rs.next()){ %>
+    
+    
+    <tr>
+    <td><%=rs.getString(1) %></td>
+    <td><%=rs.getString(2) %></td>
+    <td><%=rs.getString(3) %></td>
+    <td><%=rs.getString(4) %></td>
+    <td><%=rs.getString(4) %></td>
+    </tr>
+    <%} %>
+    </table>
 
 </body>
 </html>

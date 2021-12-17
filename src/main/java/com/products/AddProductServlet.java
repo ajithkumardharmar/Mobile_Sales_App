@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 @WebServlet("/addproduct")
 public class AddProductServlet extends HttpServlet {
        public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException {
@@ -25,7 +26,9 @@ public class AddProductServlet extends HttpServlet {
     	   ProductConnect obj2=new ProductConnect();
     	   
 			obj2.add(obj);
-			res.sendRedirect("Adminhome.html");
+			HttpSession session=req.getSession();
+			session.setAttribute("product","Product succesfully added");
+			res.sendRedirect("AdminMain.jsp");
 		
     	   
        } 
