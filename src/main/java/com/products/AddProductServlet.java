@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import com.dao.ProductDao;
+import com.pojo.ProductPojo;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,10 +23,10 @@ public class AddProductServlet extends HttpServlet {
 //    	   PrintWriter out=res.getWriter();
 //    	   out.println(product_name);
     	   
-    	   AddProductDao obj=new AddProductDao(product_name,description,
+    	   ProductPojo obj=new ProductPojo(product_name,description,
     			   Double.parseDouble(standard_cost),Double.parseDouble(list_price));
     	   
-    	   ProductConnect obj2=new ProductConnect();
+    	   ProductDao obj2=new ProductDao();
     	   
 			obj2.add(obj);
 			HttpSession session=req.getSession();

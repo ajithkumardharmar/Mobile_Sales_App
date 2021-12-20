@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
+import com.dao.AdminDao;
+import com.pojo.AdminPojo;
+
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -15,9 +18,9 @@ public class AdminLoginServlet extends HttpServlet {
 		String AdminUserName=req.getParameter("admin");
 		String password=req.getParameter("password");
 		PrintWriter out=res.getWriter();
-		AdminDao admin=new AdminDao(AdminUserName, password);
+		AdminPojo admin=new AdminPojo(AdminUserName, password);
 		try {
-			boolean flag=ServletConnection.login(admin);
+			boolean flag=AdminDao.login(admin);
 			out.println(flag);
 			if(flag) {
 				res.sendRedirect("AdminMain.jsp");
@@ -26,7 +29,7 @@ public class AdminLoginServlet extends HttpServlet {
 			else {
 				HttpSession session=req.getSession();
 				session.setAttribute("admin","Invalid Email or Password");
-				res.sendRedirect("AdminLogin;.jsp");
+				res.sendRedirect("AdminLogin.jsp");
 				//out.println("Invalid username or Password");
 			}
 			

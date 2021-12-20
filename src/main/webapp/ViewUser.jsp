@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import ="com.ajith.*" import ="java.sql.*" %>
+    pageEncoding="ISO-8859-1" import ="com.dao.*" import ="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,6 +42,7 @@ table, th, td {
     
     .active {
         background-color: grey;
+       
     }
        *{
     	margin: 0;
@@ -55,17 +56,20 @@ table, th, td {
 
         <ul>
             <li><a href="MobilePage.html">Home</a></li>
-            <li><a href="index1.jsp">Login</a></li>
-            <li><a class="active" href="AdminLogin.jsp">Admin</a></li>
+          
+             <li style="float: right;"><a href="MobilePage.jsp">Sign out</a></li>
+            <li style="float:right"><a class="active" href="AdminLogin.jsp">Admin</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
-            <li style="float: right;"><a href="MobilePage.html">Sign out</a></li>
+           
 
         </ul>
     </div><br><br><br>
     
     
-        <%ResultSet ns=NewConnection.userDetails(); %>
+        <%
+                ResultSet ns=UserDao.userDetails();
+                %>
     <table style="width: 80%;margin-left: 100px;">
     <tr>
     <th>Name</th>
