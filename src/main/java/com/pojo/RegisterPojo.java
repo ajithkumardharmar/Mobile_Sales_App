@@ -1,10 +1,13 @@
 package com.pojo;
 
 public class RegisterPojo {
+	
+	
 	private String name;
 	private String email;
 	private Long phone_number;
 	private String password;
+	
 	private String confirm_password;
 	public String getName() {
 		return name;

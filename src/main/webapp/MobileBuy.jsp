@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+   
+   
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -109,6 +112,13 @@ position: relative;
 }
 </style>
 <body bgcolor="cornsilk">
+
+
+
+     <% String name =(String)session.getAttribute("name");%>
+      
+      
+      
 	<h2 class="h2_1">Mobile Sales App</h2>
 
 	<div class="top_nav">
@@ -122,15 +132,21 @@ position: relative;
 
 		</ul>
 
+<%int price=(int)session.getAttribute("price"); %>
 
 	</div></body>
 	<div class="buy_div">
-	<form action="buying"><br>
-	Address : <input name="address" type="text" ><br><br>
-	Pincode : <input name="pincode" type="text"><br><br>
-	Password: <input name="password" type="password"><br><br><br>
+	<form action="buying" method="post"><br>
+	<h4 style="margin-left: 50px;color: blue">Hello <%=name %></h4><br>
+	
+	Address : <input name="address" required="required" pattern="[a-zA-Z0-9\s,[]]{3,40}" type="text" ><br><br>
+	Pincode : <input name="pincode" required="required" pattern="[0-9][6]" maxlength="6" type="text"><br><br>
+	Password: <input name="password" required="required" pattern="(?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password"><br><br><br>
+	<h4 style="margin-left: 50px">Total Price :<%=price%></h4><br>	
+	
 	<button class="buy_button" type="submit">Buy</button><br><br>
 	
 	</form>
+	
 	</div>
 </html>

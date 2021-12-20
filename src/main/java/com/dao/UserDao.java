@@ -1,6 +1,8 @@
 package com.dao;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.connection.ConnectionPro;
 import com.pojo.LoginPojo;
@@ -29,22 +31,16 @@ public class UserDao {
 	
 	
 	
-	public static boolean fetch(LoginPojo Login) throws Exception{
-	
+	public static ResultSet fetch(LoginPojo Login) throws Exception{
+	//List<LoginPojo> loginpojo = new ArrayList();
 		Connection con=ConnectionPro.connect();
 		String query="select * from users_table  where email in ? and password in ?";
 		PreparedStatement pre=con.prepareStatement(query);
 		pre.setString(1, Login.getUsername());
 		pre.setString(2, Login.getPassword());
-	ResultSet rs = pre.executeQuery();
+		ResultSet rs = pre.executeQuery();
 
-	if(rs.next()) {
-		return true;
-	}
-	else
-	{
-		return false;	
-	}
+	return rs;
 	
 	}
 	

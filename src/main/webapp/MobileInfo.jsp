@@ -135,8 +135,11 @@ margin-top:40px;
 
 
 	</div>
+	<%session.setAttribute("productId", 41);
+	  session.setAttribute("price", 29000);%>
 	<div class="body_main">
-		<a><img
+	
+		<a><img id="41"
 			src="https://rukminim1.flixcart.com/image/312/312/k9loccw0/mobile/p/z/q/apple-iphone-se-mxd02hn-a-original-imafrcpjfehbbqgb.jpeg?q=70"
 			alt=""></a>
 		<div class="phoneInfo">

@@ -84,7 +84,7 @@
         <form action="addproduct" method="post"><br>
 			<h2>Add product</h2><br>
             <label class="add_label1">Product Name :</label>
-            <input type="text" name="product_name"  pattern="[a-zA-Z0-9\s]{3,40}" id="brand_textbox" required class="add_inputs1"><br><br>
+            <input type="text" name="product_name"  pattern="[a-zA-Z0-9\s,[]]{3,40}" id="brand_textbox" required class="add_inputs1"><br><br>
 
             <label class="add_label1">Description :</label>
             <input type="text" name="description" id="brand_textbox" pattern="[a-zA-Z\s]{3,60}" required class="add_inputs1"><br><br>

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%><%if(session.getAttribute("email") ==(null)){
+    	response.sendRedirect("index.jsp");
+    	}%>
+    	<% String name =(String)session.getAttribute("name");
+    	//int userId=(int)session.getAttribute("userId");%>
+    	
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +16,7 @@
     .h2_1 {
         text-align: center;
         background-color: bisque;
+        
     }
     
     .top_nav {
@@ -110,7 +117,7 @@
     <div class="top_nav">
 
         <ul>
-            <li><a class="active" href="MobilePage.jsp">Home</a></li>
+            <li><a class="active" href="MobilePage.jsp	">Home</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
             <li style="float: right;"><a href="index.jsp">Login</a></li>
@@ -129,12 +136,12 @@
         
         <table style="margin-left: 122px;" class="table1">
             <tr>
-                <th><a href="MobileInfo.jsp"><img src="https://rukminim1.flixcart.com/image/312/312/k9loccw0/mobile/p/z/q/apple-iphone-se-mxd02hn-a-original-imafrcpjfehbbqgb.jpeg?q=70" alt=""></a>                </th>
+                <th><a id="41" href="MobileInfo.jsp"><img src="https://rukminim1.flixcart.com/image/312/312/k9loccw0/mobile/p/z/q/apple-iphone-se-mxd02hn-a-original-imafrcpjfehbbqgb.jpeg?q=70" alt=""></a>                </th>
                 <th><a ><img src="https://rukminim1.flixcart.com/image/312/312/ku4ezrk0/mobile/b/o/m/c31-mzb0a0min-poco-original-imag7bzqxekkpkrv.jpeg?q=70" alt=""></a></th>
                 <th><img src="https://rukminim1.flixcart.com/image/312/312/ktx9si80/mobile/q/a/c/narzo-50a-rmx3430-realme-original-imag75kybaer8scz.jpeg?q=70" alt=""></th>
                 <th><img src="https://rukminim1.flixcart.com/image/312/312/ktbu6q80/mobile/x/w/y/8i-rmx3151-realme-original-imag6zhnabagtrzu.jpeg?q=70" alt=""></th>
             </tr>
-
+		
             <tr>
                 <br>
                 <td> <br> APPLE iPhone SE (Black, 64 GB)
@@ -167,7 +174,7 @@
         <br> <br><br> <br>
         <table style="margin-left: 122px;" class="table1">
             <tr>
-                <th><img src="https://rukminim1.flixcart.com/image/312/312/knyxqq80/mobile/1/c/5/a53s-5g-cph2321-oppo-original-imag2gwzzxmkwgsn.jpeg?q=70" alt="">
+                <th><img  src="https://rukminim1.flixcart.com/image/312/312/knyxqq80/mobile/1/c/5/a53s-5g-cph2321-oppo-original-imag2gwzzxmkwgsn.jpeg?q=70" alt="">
                     <br>
                 </th>
                 <th><img src="https://rukminim1.flixcart.com/image/312/312/kg8avm80/mobile/n/2/u/apple-iphone-12-mini-dummyapplefsn-original-imafwgbf4pvjhypq.jpeg?q=70" alt=""></th>
