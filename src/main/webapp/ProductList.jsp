@@ -55,7 +55,8 @@ table, th, td {
 
         <ul>
             <li><a href="MobilePage.html">Home</a></li>
-          
+           <li><a href="#contact">My Orders</a></li>
+            <li><a href="#contact">Cart</a></li>
              <li style="float: right;"><a href="MobilePage.jsp">Sign out</a></li>
             <li style="float: right;"><a class="active" href="AdminLogin.jsp">Admin</a></li>
             <li><a href="#contact">Contact us</a></li>

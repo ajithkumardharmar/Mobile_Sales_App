@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%><%if(session.getAttribute("email") ==(null)){
+    pageEncoding="ISO-8859-1"%>
+    	<% String name =(String)session.getAttribute("name");
+    if(name ==(null)){
     	response.sendRedirect("index.jsp");
     	}%>
-    	<% String name =(String)session.getAttribute("name");
-    	//int userId=(int)session.getAttribute("userId");%>
+    	
     	
     
 <!DOCTYPE html>
@@ -118,6 +119,8 @@
 
         <ul>
             <li><a class="active" href="MobilePage.jsp	">Home</a></li>
+            <li><a href="ViewOrders.jsp">My Orders</a></li>
+            <li><a href="#contact">Cart</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
             <li style="float: right;"><a href="index.jsp">Login</a></li>
@@ -137,9 +140,9 @@
         <table style="margin-left: 122px;" class="table1">
             <tr>
                 <th><a id="41" href="MobileInfo.jsp"><img src="https://rukminim1.flixcart.com/image/312/312/k9loccw0/mobile/p/z/q/apple-iphone-se-mxd02hn-a-original-imafrcpjfehbbqgb.jpeg?q=70" alt=""></a>                </th>
-                <th><a ><img src="https://rukminim1.flixcart.com/image/312/312/ku4ezrk0/mobile/b/o/m/c31-mzb0a0min-poco-original-imag7bzqxekkpkrv.jpeg?q=70" alt=""></a></th>
-                <th><img src="https://rukminim1.flixcart.com/image/312/312/ktx9si80/mobile/q/a/c/narzo-50a-rmx3430-realme-original-imag75kybaer8scz.jpeg?q=70" alt=""></th>
-                <th><img src="https://rukminim1.flixcart.com/image/312/312/ktbu6q80/mobile/x/w/y/8i-rmx3151-realme-original-imag6zhnabagtrzu.jpeg?q=70" alt=""></th>
+                <th><a id="42" href="MobileInfoPoco.jsp"><img src="https://rukminim1.flixcart.com/image/312/312/ku4ezrk0/mobile/b/o/m/c31-mzb0a0min-poco-original-imag7bzqxekkpkrv.jpeg?q=70" alt=""></a></th>
+                <th><a href="MobileInfoRealme.jsp"><img src="https://rukminim1.flixcart.com/image/312/312/ktx9si80/mobile/q/a/c/narzo-50a-rmx3430-realme-original-imag75kybaer8scz.jpeg?q=70" alt=""></a></th>
+                <th><a href="MobileInfoRealme8i.jsp"><img src="https://rukminim1.flixcart.com/image/312/312/ktbu6q80/mobile/x/w/y/8i-rmx3151-realme-original-imag6zhnabagtrzu.jpeg?q=70" alt=""></a></th>
             </tr>
 		
             <tr>
@@ -154,9 +157,9 @@
               <tr>
                 <br>
                 <td> <br> 29000 </td>
-                <td><br>18999 </td>
+                <td><br>16000 </td>
                 <td><br>13000</td>
-                <td><br>14999</td>
+                <td><br>14000</td>
             </tr>
             <tr>
 
@@ -194,7 +197,7 @@
             <tr>
                 <br>
                 <td> <br> 29000 </td>
-                <td><br>18999 </td>
+                <td><br>40000 </td>
                 <td><br>13000</td>
                 <td><br>14999</td>
             </tr>

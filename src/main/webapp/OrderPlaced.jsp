@@ -1,25 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-   
-   
-    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>MobileBuyingPage</title>
+<title>OrderPlaced</title>
 </head>
 <style>
-* {
-	margin: 0;
-	padding: 0;
-}
 .h2_1 {
 	text-align: center;
 	background-color: bisque;
 }
 
-
+.top_nav {
+	/* background-color: brown;
+        padding: 9px; */
+	
+}
 
 .top_nav_in1 {
 	position: relative;
@@ -97,28 +94,32 @@ li a:hover {
 .active {
 	background-color: grey;
 }
-.buy_div{
-margin-left:400px;
-margin-top:200px;
+
+.phoneInfo {
+	margin-left: 250px;
+	margin-top: -270px;
+	font-size: 20px;
 }
-.buy_button{
-position: relative;
-	left: 80px;
-	padding:12px;
-	color: blanchedalmond;
-	border-radius: 12px;
-	
-	background-color: rgb(83, 83, 204);
+.but_log a{
+	text-decoration:none;
+	color:white;
+ 	padding: 12px;
+ 	margin-top:20px;
+    margin-left: 100px;
+    background-color: rgb(83, 83, 204);
+    border-radius: 20px;
+
+}
+.but_log{
+margin-top:40px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
 }
 </style>
 <body bgcolor="cornsilk">
-
-
-
-     <% String name =(String)session.getAttribute("name");%>
-      
-      
-      
 	<h2 class="h2_1">Mobile Sales App</h2>
 
 	<div class="top_nav">
@@ -134,25 +135,10 @@ position: relative;
 
 		</ul>
 
-	<%int price=(int)session.getAttribute("price"); %>
 
-	</div></body>
-	<div class="buy_div">
-	<form action="buying" method="post"><br>
-	<h4 style="margin-left: 50px;color: blue">Hello <%=name %></h4><br>
-	
-	Address : <input name="address" required="required" pattern="[a-zA-Z0-9\s,[]]{3,40}" type="text" ><br><br>
-	Pincode : <input name="pincode" required="required" pattern="[0-9]{6}" maxlength="6" type="text"><br><br>
-	Password: <input name="password" required="required" pattern="(?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password"><br><br><br>
-	<h4 style="margin-left: 50px">Total Price :<%=price%></h4><br>	
-	<%if(session.getAttribute("buying")!=null){ %>
-	<h4 style="color:red;margin-left: 50px"><%=session.getAttribute("buying") %></h3><br>
-	<%} %>
-	
-	<button class="buy_button" type="submit">Buy</button><br><br>
-	
-	</form>
-	
 	</div>
-	<%session.removeAttribute("buying"); %>
+	
+	<h1 style="color: green;margin-left: 300px;margin-top:200px">Successfully Placed Thank You for Purchasing</h1>
+	<span style='font-size:100px;margin-left: 550px'>&#128522;</span>
+</body>
 </html>

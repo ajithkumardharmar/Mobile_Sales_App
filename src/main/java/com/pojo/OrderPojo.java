@@ -3,7 +3,7 @@ package com.pojo;
 public class OrderPojo {
 	private int userId;
 	private int productId;
-	private Double price;
+	private long price;
 	private String address;
 	public int getUserId() {
 		return userId;
@@ -18,10 +18,11 @@ public class OrderPojo {
 		this.productId = productId;
 	}
 	
-	public Double getPrice() {
+	
+	public long getPrice() {
 		return price;
 	}
-	public void setPrice(Double price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 	public String getAddress() {
@@ -36,7 +37,12 @@ public class OrderPojo {
 		return "OrderPojo [userId=" + userId + ", productId=" + productId + ", price=" + price + ", address=" + address
 				+ "]";
 	}
-	public OrderPojo(int userId, int productId, Double price, String address) {
+	
+	public OrderPojo(int userId) {
+		super();
+		this.userId = userId;
+	}
+	public OrderPojo(int userId, int productId, long price, String address) {
 		super();
 		this.userId = userId;
 		this.productId = productId;

@@ -1,12 +1,18 @@
+<%@page import="com.dao.ViewOrdersDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import ="com.dao.ViewOrdersDao" import ="java.sql.*" import ="com.pojo.OrderPojo" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Mobile Info Page</title>
+<title>ViewOrders</title>
 </head>
 <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+}
 .h2_1 {
 	text-align: center;
 	background-color: bisque;
@@ -125,8 +131,8 @@ margin-top:40px;
 	<div class="top_nav">
 
 		<ul>
-			<li><a class="active" href="MobilePage.jsp">Home</a></li>
-			<li><a href="#contact">My Orders</a></li>
+			<li><a  href="MobilePage.jsp">Home</a></li>
+			<li><a class="active" href="myOrder">My Orders</a></li>
             <li><a href="#contact">Cart</a></li>
 			<li><a href="#contact">Contact us</a></li>
 			<li><a href="#about us">About us</a></li>
@@ -136,32 +142,40 @@ margin-top:40px;
 		</ul>
 
 
-	</div>
-	<%session.setAttribute("productId", 41);
-	  session.setAttribute("price", 29000);%>
-	<div class="body_main">
+	</div><br><br>
+    <%
+    String user = (String) session.getAttribute("userId");
+	int userId = Integer.parseInt(user);
+	System.out.println(userId);
+	OrderPojo orderPojo=new OrderPojo(userId);
+	ViewOrdersDao order=new ViewOrdersDao();
+	ResultSet rs=order.viewAllOrders(orderPojo);
 	
-		<a><img id="41"
-			src="https://rukminim1.flixcart.com/image/312/312/k9loccw0/mobile/p/z/q/apple-iphone-se-mxd02hn-a-original-imafrcpjfehbbqgb.jpeg?q=70"
-			alt=""></a>
-		<div class="phoneInfo">
-			<pre>APPLE iPhone SE (Black, 128 GB)
-4.51,35,254 Ratings & 10,960 Reviews
-128 GB ROM
-11.94 cm (4.7 inch) Retina HD Display
-12MP Rear Camera | 7MP Front Camera
-A13 Bionic Chip with 3rd Gen Neural Engine Processor
-Water and Dust Resistant (1 meter for Upto 30 minutes, IP67)
-Fast Charge Capable
-Wireless charging (Works with Qi Chargers | Qi Chargers are Sold Separately
-</pre>
+    %><%//if(rs.next()){ 
+    System.out.println("rsnext");%>
+    <table style="width: 80%;margin-left: 100px;">
+    <tr>
+     <th>Order Id</th>
+    <th>Order Status</th>
+    <th>Price</th>
+    <th>Order Date</th>
+    <th>Delivery Address</th>
+    </tr>
+    <%while(rs.next()){ %>
+    
+    
+    <tr>
+    <td><%=rs.getInt(1) %></td>
+    <td><%=rs.getString(2) %></td>
+    <td><%=rs.getDouble(3) %></td>
+    <td><%=rs.getString(4) %></td>
+    <td><%=rs.getString(5) %></td>
+    </tr>
+    <%} %>
+    </table>
 
-			<div class="but_log">
-				<a href="addCart">Add Cart</a> 
-				<a href="MobileBuy.jsp">Buy</a>
-			</div>
-		</div>
-	</div>
+
+<!--  <h3 style="color: red;margin-left: 300px">No Order Placed</h3> -->
 
 
 </body>
