@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import com.mobilesalesapp.dao.UserDao;
+import com.mobilesalesapp.impl.UserImpl;
 import com.mobilesalesapp.model.RegisterPojo;
 
 import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
@@ -29,7 +29,7 @@ public class RegServlet extends HttpServlet {
 		
 			
 		RegisterPojo p=new RegisterPojo(name, email, phone_number, password, confirm_password);
-		UserDao userDao=new UserDao();
+		UserImpl userDao=new UserImpl();
 		
 		userDao.Connect1(p);
 		res.sendRedirect("index.jsp");

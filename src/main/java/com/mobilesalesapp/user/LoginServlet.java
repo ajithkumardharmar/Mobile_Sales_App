@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mobilesalesapp.dao.UserDao;
+import com.mobilesalesapp.impl.UserImpl;
 import com.mobilesalesapp.model.LoginPojo;
 
 import jakarta.servlet.RequestDispatcher;
@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		String password=req.getParameter("password");
 		
 		LoginPojo Login=new LoginPojo(username,password);
-		UserDao userDao=new UserDao();
+		UserImpl userDao=new UserImpl();
 	
 	
 			try {

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import com.mobilesalesapp.dao.AdminDao;
+import com.mobilesalesapp.impl.AdminImpl;
 import com.mobilesalesapp.model.AdminPojo;
 
 import jakarta.servlet.annotation.WebServlet;
@@ -20,7 +20,7 @@ public class AdminLoginServlet extends HttpServlet {
 		PrintWriter out=res.getWriter();
 		AdminPojo admin=new AdminPojo(AdminUserName, password);
 		
-			AdminDao adminDao=new AdminDao();
+			AdminImpl adminDao=new AdminImpl();
 			boolean flag=adminDao.login(admin);
 			out.println(flag);
 			if(flag) {

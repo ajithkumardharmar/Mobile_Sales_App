@@ -2,7 +2,7 @@ package com.mobilesalesapp.products;
 
 import java.io.IOException;
 
-import com.mobilesalesapp.dao.ProductDao;
+import com.mobilesalesapp.impl.ProductImpl;
 import com.mobilesalesapp.model.ProductPojo;
 
 import jakarta.servlet.annotation.WebServlet;
@@ -14,10 +14,13 @@ import jakarta.servlet.http.HttpSession;
 public class DeleteProductServlet extends HttpServlet {
 	public void doPost(HttpServletRequest req,HttpServletResponse res) {
 		
-		int productId=Integer.parseInt(req.getParameter("deleteId"));
+		//int productId=Integer.parseInt(req.getParameter("deleteId"));
+		String productId1=req.getParameter("deleteProductId");
+		int productId=Integer.parseInt(productId1);
+		System.out.println(productId);
 		System.out.println("pro");
 		ProductPojo obj1=new ProductPojo(productId);
-		ProductDao obj2=new ProductDao();
+		ProductImpl obj2=new ProductImpl();
 		
 		try {
 			obj2.delete(obj1);

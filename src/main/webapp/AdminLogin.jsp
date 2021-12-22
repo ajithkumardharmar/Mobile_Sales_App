@@ -20,7 +20,7 @@
                 <label class="c_lab" pattern="(?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                 title="Enter atleast one upper case and one lower case and one number ,and atleast 8 or more character" 
                 for="username">Password</label><br>
-                <input class="c_user" name="password" type="text" required><br><br>
+                <input class="c_user" name="password" type="password" required><br><br>
                 <button class="c_sub" type="submit">Login </button><br><br><br>
                 
                 <%String error=(String)session.getAttribute("admin");

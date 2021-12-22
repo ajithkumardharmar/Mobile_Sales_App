@@ -1,6 +1,6 @@
-<%@page import="com.mobilesalesapp.dao.ViewOrdersDao"%>
+<%@page import="com.mobilesalesapp.impl.ViewOrdersImpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import ="com.mobilesalesapp.dao.ViewOrdersDao" import ="java.sql.*" import ="com.mobilesalesapp.pojo.OrderPojo" %>
+    pageEncoding="ISO-8859-1" import ="com.mobilesalesapp.impl.ViewOrdersImpl" import ="java.sql.*" import ="com.mobilesalesapp.model.OrderPojo" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,7 +136,7 @@ margin-top:40px;
             <li><a href="ViewCart.jsp">Cart</a></li>
 			<li><a href="#contact">Contact us</a></li>
 			<li><a href="#about us">About us</a></li>
-			<li style="float: right;"><a href="index.jsp">Login</a></li>
+			<li style="float: right;"><a href="index.jsp">Logout</a></li>
 			<li style="float: right;"><a href="AdminLogin.jsp">Admin</a></li>
 
 		</ul>
@@ -145,12 +145,11 @@ margin-top:40px;
 	</div><br><br>
     <%
     String user = (String) session.getAttribute("userId");
-	int userId = Integer.parseInt(user);
-	System.out.println(userId);
-	OrderPojo orderPojo=new OrderPojo(userId);
-	ViewOrdersDao order=new ViewOrdersDao();
-	ResultSet rs=order.viewAllOrders(orderPojo);
-	
+    	int userId = Integer.parseInt(user);
+    	System.out.println(userId);
+    	OrderPojo orderPojo=new OrderPojo(userId);
+    	ViewOrdersImpl order=new ViewOrdersImpl();
+    	ResultSet rs=order.viewAllOrders(orderPojo);
     %><%//if(rs.next()){ 
     System.out.println("rsnext");%>
     <table style="width: 80%;margin-left: 100px;">

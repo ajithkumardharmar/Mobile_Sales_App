@@ -2,7 +2,7 @@ package com.mobilesalesapp.orders;
 
 import java.io.IOException;
 
-import com.mobilesalesapp.dao.CartDao;
+import com.mobilesalesapp.impl.CartImpl;
 import com.mobilesalesapp.model.CartPojo;
 
 import jakarta.servlet.annotation.WebServlet;
@@ -20,7 +20,7 @@ public class CartServlet extends HttpServlet {
 		System.out.println(userId);
 		int productId = (int) session.getAttribute("productId");
 		CartPojo cartPojo=new CartPojo(userId,productId);
-		CartDao  cartDao=new CartDao();
+		CartImpl  cartDao=new CartImpl();
 		cartDao.addCart(cartPojo);
 		try {
 			res.sendRedirect("CartItem.jsp");

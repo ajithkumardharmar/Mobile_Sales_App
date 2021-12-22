@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import ="com.mobilesalesapp.dao.*" import ="java.sql.*" %>
+    pageEncoding="ISO-8859-1" import ="com.mobilesalesapp.impl.*" import ="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,11 +55,10 @@ table, th, td {
     <div class="top_nav">
 
         <ul>
-            <li><a href="MobilePage.html">Home</a></li>
-            <li><a href="ViewOrders.jsp">My Orders</a></li>
-            <li><a href="ViewCart.jsp">Cart</a></li>
-             <li style="float: right;"><a href="MobilePage.jsp">Sign out</a></li>
-            <li style="float:right"><a class="active" href="AdminLogin.jsp">Admin</a></li>
+            <li><a href="MobilePage.jsp">Home</a></li>
+         
+             <li style="float: right;"><a href="AdminLogin.jsp">Sign out</a></li>
+            <li style="float: right;"><a class="active" href="AdminMain.jsp">Admin</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
            
@@ -69,7 +68,8 @@ table, th, td {
     
     
         <%
-                ResultSet ns=UserDao.userDetails();
+                UserImpl userDao=new UserImpl();
+                                                ResultSet ns=userDao.userDetails();
                 %>
     <table style="width: 80%;margin-left: 100px;">
     <tr>

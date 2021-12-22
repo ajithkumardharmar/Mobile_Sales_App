@@ -64,10 +64,10 @@
     <div class="top_nav">
 
         <ul>
-            <li><a href="MobilePage.html">Home</a></li>
+            <li><a href="MobilePage.jsp">Home</a></li>
            
-            <li style="float: right;"><a href="MobilePage.jsp">Sign out</a></li>
-            <li style="float: right;"><a class="active" href="AdminLogin.jsp">Admin</a></li>
+            <li style="float: right;"><a href="AdminLogin.jsp">Sign out</a></li>
+            <li style="float: right;"><a class="active" href="AdminMain.jsp">Admin</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
             

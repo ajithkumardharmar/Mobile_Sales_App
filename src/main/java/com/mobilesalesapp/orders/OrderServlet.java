@@ -2,7 +2,7 @@ package com.mobilesalesapp.orders;
 
 import java.sql.*;
 
-import com.mobilesalesapp.dao.OrderDao;
+import com.mobilesalesapp.impl.OrderImpl;
 import com.mobilesalesapp.model.OrderPojo;
 import com.mobilesalesapp.model.UpdateWalletPojo;
 
@@ -27,7 +27,7 @@ public class OrderServlet extends HttpServlet {
 		int price = (int) session.getAttribute("price");
 		System.out.println(userId + productId + fullAddress + password + price + userId);
 		UpdateWalletPojo obj1 = new UpdateWalletPojo(userId, password, price);
-		OrderDao orderDao = new OrderDao();
+		OrderImpl orderDao = new OrderImpl();
 
 		int i = orderDao.updateWallet1(obj1);
 		try {

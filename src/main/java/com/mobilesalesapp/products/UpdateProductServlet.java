@@ -2,7 +2,7 @@ package com.mobilesalesapp.products;
 
 import java.io.IOException;
 
-import com.mobilesalesapp.dao.ProductDao;
+import com.mobilesalesapp.impl.ProductImpl;
 import com.mobilesalesapp.model.ProductPojo;
 
 import jakarta.servlet.annotation.WebServlet;
@@ -22,7 +22,7 @@ public class UpdateProductServlet extends HttpServlet {
 		System.out.println(standardPrice+" "+listPrice);
 		
 		ProductPojo obj1=new ProductPojo(productId,standardPrice,listPrice);
-		ProductDao obj2=new ProductDao();
+		ProductImpl obj2=new ProductImpl();
 		obj2.update(obj1);
 		try {
 			HttpSession session =req.getSession();

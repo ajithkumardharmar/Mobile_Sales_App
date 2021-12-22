@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 
-import com.mobilesalesapp.dao.ProductDao;
+import com.mobilesalesapp.impl.ProductImpl;
 import com.mobilesalesapp.model.ProductPojo;
 
 import jakarta.servlet.annotation.WebServlet;
@@ -26,7 +26,7 @@ public class AddProductServlet extends HttpServlet {
     	   ProductPojo obj=new ProductPojo(product_name,description,
     			   Double.parseDouble(standard_cost),Double.parseDouble(list_price));
     	   
-    	   ProductDao obj2=new ProductDao();
+    	   ProductImpl obj2=new ProductImpl();
     	   
 			obj2.add(obj);
 			HttpSession session=req.getSession();

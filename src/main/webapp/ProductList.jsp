@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import = "com.mobilesalesapp.dao.*" import ="java.sql.*" %>
+    pageEncoding="ISO-8859-1" import = "com.mobilesalesapp.impl.*" import ="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,11 +54,9 @@ table, th, td {
     <div class="top_nav">
 
         <ul>
-            <li><a href="MobilePage.html">Home</a></li>
-           <li><a href="ViewOrders.jsp">My Orders</a></li>
-            <li><a href="ViewCart.jsp">Cart</a></li>
-             <li style="float: right;"><a href="MobilePage.jsp">Sign out</a></li>
-            <li style="float: right;"><a class="active" href="AdminLogin.jsp">Admin</a></li>
+            <li><a href="MobilePage.jsp">Home</a></li>
+            <li style="float: right;"><a href="AdminLogin.jsp">Sign out</a></li>
+            <li style="float: right;"><a class="active" href="AdminMain.jsp">Admin</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
            
@@ -68,25 +66,48 @@ table, th, td {
 
     </div><br><br><br>
     <%
-    ResultSet rs=ListAllProductDao.viewProduct();
+    ListAllProductImpl listAllProductDao =new ListAllProductImpl();
+            ResultSet rs=listAllProductDao.viewProduct();
     %>
-    <table style="width: 80%;margin-left: 100px;">
+    <table style="width: 90%;margin-left: 70px;">
     <tr>
      <th>Product Id</th>
     <th>Product Name</th>
     <th>Description</th>
     <th>Standard Price</th>
     <th>List Price</th>
+    <th>Actions</th>
     </tr>
     <%while(rs.next()){ %>
     
     
     <tr>
-    <td><%=rs.getString(1) %></td>
+    <td><%=rs.getInt(1) %></td>
     <td><%=rs.getString(2) %></td>
     <td><%=rs.getString(3) %></td>
     <td><%=rs.getString(4) %></td>
     <td><%=rs.getString(5) %></td>
+    <td> <form action="deleteProduct" method="post">
+   	 	  Product Id : <input type="text" value=<%=rs.getInt(1) %> disabled  name="deleteId" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="deleteId"><br><br>
+       <button type="submit" class="btn_add">Delete</button><br><br>
+         <%if(session.getAttribute("deleteInfo")!=null){ %>
+            <h4 style="color: green"><%=session.getAttribute("deleteInfo") %></h4>
+            <%} %>
+        </form>
+        <form action="updateProduct" method="post">
+        
+        Product Id : <input type="text" name="updateId" value=<%=rs.getInt(1) %> disabled id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="updateId"><br><br>
+        <label class="add_label1">Standard_cost :</label>
+         <input type="text" name="updateStandardPrice" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="add_inputs1"><br><br>
+
+            <label class="add_label2">List Price :</label>
+            <input type="text" name="updateListPrice" id="brand_textbox"  pattern="[0-9]{1,8}" maxlength="8" required class="add_inputs2"><br><br>
+        	<button type="submit" class="btn_add">Update</button><br><br>
+        	 <%if(session.getAttribute("updateInfo")!=null){ %>
+            <h4 style="color: green"><%=session.getAttribute("updateInfo") %></h4>
+            <%} %>
+        </form>
+        </td>
     </tr>
     <%} %>
     </table>
