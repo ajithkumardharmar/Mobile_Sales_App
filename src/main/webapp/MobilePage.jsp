@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     	<% String name =(String)session.getAttribute("name");
+    	String userId1=(String)session.getAttribute("userId");
+    	int userId=Integer.parseInt(userId1);
+    	System.out.println(userId);
     if(name ==(null)){
     	response.sendRedirect("index.jsp");
     	}%>
@@ -120,7 +123,7 @@
         <ul>
             <li><a class="active" href="MobilePage.jsp	">Home</a></li>
             <li><a href="ViewOrders.jsp">My Orders</a></li>
-            <li><a href="#contact">Cart</a></li>
+            <li><a href="ViewCart.jsp">Cart</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
             <li style="float: right;"><a href="index.jsp">Login</a></li>
@@ -165,11 +168,11 @@
 
                 <td><a class="button1" href="MobileInfo.jsp">Buy</a>
                 </td>
-                <td><a class="button1" href="#MobileInfo.jsp">Buy</a>
+                <td><a class="button1" href="MobileInfoPoco.jsp">Buy</a>
                 </td>
-                <td><a class="button1" href="#as">Buy</a>
+                <td><a class="button1" href="MobileInfoRealme.jsp">Buy</a>
                 </td>
-                <td><a class="button1" href="#as">Buy</a>
+                <td><a class="button1" href="MobileInfoRealme8i.jsp">Buy</a>
                 </td>
             </tr>
 

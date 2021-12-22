@@ -1,6 +1,6 @@
-<%@page import="com.dao.ViewOrdersDao"%>
+<%@page import="com.mobilesalesapp.dao.ViewOrdersDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import ="com.dao.ViewOrdersDao" import ="java.sql.*" import ="com.pojo.OrderPojo" %>
+    pageEncoding="ISO-8859-1" import ="com.mobilesalesapp.dao.ViewOrdersDao" import ="java.sql.*" import ="com.mobilesalesapp.pojo.OrderPojo" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,8 +132,8 @@ margin-top:40px;
 
 		<ul>
 			<li><a  href="MobilePage.jsp">Home</a></li>
-			<li><a class="active" href="myOrder">My Orders</a></li>
-            <li><a href="#contact">Cart</a></li>
+			<li><a class="active" href="ViewOrders.jsp">My Orders</a></li>
+            <li><a href="ViewCart.jsp">Cart</a></li>
 			<li><a href="#contact">Contact us</a></li>
 			<li><a href="#about us">About us</a></li>
 			<li style="float: right;"><a href="index.jsp">Login</a></li>

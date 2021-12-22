@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import ="com.mobilesalesapp.connection.ConnectionPro" import ="java.sql.* "%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Mobile Info Page</title>
+<title>ViewCartItems</title>
 </head>
 <style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+}
 .h2_1 {
 	text-align: center;
 	background-color: bisque;
@@ -125,8 +130,8 @@ margin-top:40px;
 	<div class="top_nav">
 
 		<ul>
-			<li><a class="active" href="MobilePage.jsp">Home</a></li>
-			<li><a href="ViewOrders.jsp">My Orders</a></li>
+			<li><a  href="MobilePage.jsp">Home</a></li>
+			<li><a class="active" href="ViewOrders.jsp">My Orders</a></li>
             <li><a href="ViewCart.jsp">Cart</a></li>
 			<li><a href="#contact">Contact us</a></li>
 			<li><a href="#about us">About us</a></li>
@@ -136,31 +141,43 @@ margin-top:40px;
 		</ul>
 
 
-	</div>
-	<%session.setAttribute("productId", 42);
-	  session.setAttribute("price", 16000);%>
-	<div class="body_main">
+	</div><br><br>
+<%
+String userId1=(String)session.getAttribute("userId");
+int userId=Integer.parseInt(userId1);
+Connection con=ConnectionPro.connect();
+String query="select * from carts_table where user_id=?";
+//Statement st=con.createStatement();
+PreparedStatement pre =con.prepareStatement(query);
+pre.setInt(1,userId );
+	ResultSet rs=pre.executeQuery();
 	
-		<a><img id="42"
-			src="https://rukminim1.flixcart.com/image/312/312/ku4ezrk0/mobile/b/o/m/c31-mzb0a0min-poco-original-imag7bzqxekkpkrv.jpeg?q=70"
-			alt=""></a>
-		<div class="phoneInfo">
-			<pre>POCO C31 (Royal Blue, 64 GB)
-4.46,584 Ratings & 317 Reviews
-4 GB RAM | 64 GB ROM | Expandable Upto 512 GB
-16.59 cm (6.53 inch) HD+ Display
-13MP + 2MP + 2MP | 5MP Front Camera
-5000 mAh Lithium-ion Polymer Battery
-MediaTek Helio G35 Processor
-</pre>
-
-			<div class="but_log">
-				<a href="addCart">Add Cart</a> 
-				<a href="MobileBuy.jsp">Buy</a>
-			</div>
-		</div>
-	</div>
-
-
+	
+  
+    System.out.println("rsnext");%>
+    <table style="width: 80%;margin-left: 100px;">
+    <tr>
+     <th>Product Id</th>
+    <th>Order Status</th>
+    <th>Price</th>
+    <th>Order Date</th>
+  
+    </tr>
+    <%while(rs.next()){ %>
+    
+    
+    <tr>
+    <td><%=rs.getInt(3) %></td>
+    <td><%=rs.getString(4) %></td>
+    <td><%=rs.getString(5) %></td>
+    <td><%=rs.getDouble(6) %></td>
+   
+    </tr>
+    <%} %>
+    </table>
+	
+	
+	
+	
 </body>
 </html>
