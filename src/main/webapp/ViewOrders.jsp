@@ -150,8 +150,8 @@ margin-top:40px;
     	OrderPojo orderPojo=new OrderPojo(userId);
     	ViewOrdersImpl order=new ViewOrdersImpl();
     	ResultSet rs=order.viewAllOrders(orderPojo);
-    %><%//if(rs.next()){ 
-    System.out.println("rsnext");%>
+    %>
+    	
     <table style="width: 80%;margin-left: 100px;">
     <tr>
      <th>Order Id</th>
@@ -160,9 +160,9 @@ margin-top:40px;
     <th>Order Date</th>
     <th>Delivery Address</th>
     </tr>
-    <%while(rs.next()){ %>
-    
-    
+ 
+    <%while(rs.next()){
+    if(rs.getString(4)!=null){%>
     <tr>
     <td><%=rs.getInt(1) %></td>
     <td><%=rs.getString(2) %></td>
@@ -170,7 +170,13 @@ margin-top:40px;
     <td><%=rs.getString(4) %></td>
     <td><%=rs.getString(5) %></td>
     </tr>
-    <%} %>
+  
+    		
+    	<%	
+    }
+    else{%>
+    	<h1>Order is empty</h1>
+   <% }}%>
     </table>
 
 

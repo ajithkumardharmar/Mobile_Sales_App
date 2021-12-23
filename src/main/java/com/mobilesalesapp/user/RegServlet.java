@@ -31,7 +31,7 @@ public class RegServlet extends HttpServlet {
 		RegisterPojo p=new RegisterPojo(name, email, phone_number, password, confirm_password);
 		UserImpl userDao=new UserImpl();
 		
-		userDao.Connect1(p);
+		userDao.register(p);
 		res.sendRedirect("index.jsp");
 		
 		

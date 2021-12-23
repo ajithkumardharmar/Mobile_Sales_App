@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    	<% String name =(String)session.getAttribute("name");
+    	<%if(session.getAttribute("name")==(null)){
+        	response.sendRedirect("index.jsp");
+        	}
+    	String name =(String)session.getAttribute("name");
     	String userId1=(String)session.getAttribute("userId");
+    	double wallet=(double)session.getAttribute("wallet");
     	int userId=Integer.parseInt(userId1);
     	System.out.println(userId);
-    if(name ==(null)){
-    	response.sendRedirect("index.jsp");
-    	}%>
+    %>
     	
     	
     
@@ -124,6 +126,7 @@
             <li><a class="active" href="MobilePage.jsp	">Home</a></li>
             <li><a href="ViewOrders.jsp">My Orders</a></li>
             <li><a href="ViewCart.jsp">Cart</a></li>
+            <li><a href="#contact">Wallet</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
             <li style="float: right;"><a href="index.jsp">Logout</a></li>
@@ -133,10 +136,11 @@
 
 
     </div>
-    <div class="body_main">
-        <br>
-        <input class="top_nav_in1" type="search">
-        <button class="top_nav_bu1">Search</button><br>
+    <div class="body_main"> <br>
+    <h3 style="margin-left: 200px;"><%=name %></h3>
+    <h3 style="margin-left: 200px;"><%="Wallet Amount: "+wallet %></h3>
+       
+       
 
         <marquee class="mar1" behavior="" direction="">New Smartphone Offer Available upto 15% Discount</marquee>
         

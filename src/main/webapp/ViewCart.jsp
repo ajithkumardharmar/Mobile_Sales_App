@@ -131,8 +131,8 @@ margin-top:40px;
 
 		<ul>
 			<li><a  href="MobilePage.jsp">Home</a></li>
-			<li><a class="active" href="ViewOrders.jsp">My Orders</a></li>
-            <li><a href="ViewCart.jsp">Cart</a></li>
+			<li><a  href="ViewOrders.jsp">My Orders</a></li>
+            <li><a class="active" href="ViewCart.jsp">Cart</a></li>
 			<li><a href="#contact">Contact us</a></li>
 			<li><a href="#about us">About us</a></li>
 			<li style="float: right;"><a href="index.jsp">Logout</a></li>
@@ -155,6 +155,7 @@ pre.setInt(1,userId );
 	
   
     System.out.println("rsnext");%>
+     
     <table style="width: 80%;margin-left: 100px;">
     <tr>
      <th>Product Id</th>
@@ -163,8 +164,9 @@ pre.setInt(1,userId );
     <th>Order Date</th>
   
     </tr>
-    <%while(rs.next()){ %>
-    
+   
+    <%while(rs.next()){ 
+     if(rs.getString(4)!=null){%>
     
     <tr>
     <td><%=rs.getInt(3) %></td>
@@ -173,7 +175,12 @@ pre.setInt(1,userId );
     <td><%=rs.getDouble(6) %></td>
    
     </tr>
-    <%} %>
+    <%}
+     else{%>
+    	 <h1 style="color: red;">Cart is Empty</h1>
+     <% }} %>
+     
+     
     </table>
 	
 	

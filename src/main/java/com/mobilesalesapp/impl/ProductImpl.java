@@ -30,19 +30,21 @@ public class ProductImpl implements ProductDao {
 
 	}
 
-	public void delete(ProductPojo obj1) {
+	public int delete(ProductPojo obj1) {
 		Connection con = ConnectionPro.connect();
 		String query = "Delete from products where pk_product_id=?";
+		int i=0;
 		try {
 			PreparedStatement pre = con.prepareStatement(query);
 			pre.setInt(1, obj1.getId());
-			int i = pre.executeUpdate();
+			 i = pre.executeUpdate();
 			System.out.println(i);
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return i;
 
 	}
 

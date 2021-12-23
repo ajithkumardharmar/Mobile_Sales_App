@@ -6,11 +6,10 @@ import java.util.List;
 
 import com.mobilesalesapp.connection.ConnectionPro;
 import com.mobilesalesapp.dao.UserDao;
-import com.mobilesalesapp.model.LoginPojo;
 import com.mobilesalesapp.model.RegisterPojo;
 
 public class UserImpl implements UserDao {
-	public  void Connect1(RegisterPojo p)  {
+	public  void register(RegisterPojo p)  {
 		
 		Connection con=ConnectionPro.connect();
 		
@@ -39,7 +38,7 @@ public class UserImpl implements UserDao {
 	
 	
 	
-	public  ResultSet fetch(LoginPojo Login) {
+	public  ResultSet fetch(RegisterPojo login) {
 	//List<LoginPojo> loginpojo = new ArrayList();
 		Connection con=ConnectionPro.connect();
 		String query="select * from users_table  where email in ? and password in ?";
@@ -47,8 +46,8 @@ public class UserImpl implements UserDao {
 		ResultSet rs=null;
 		try {
 			pre = con.prepareStatement(query);
-			pre.setString(1, Login.getUsername());
-			pre.setString(2, Login.getPassword());
+			pre.setString(1, login.getEmail());
+			pre.setString(2, login.getPassword());
 			rs = pre.executeQuery();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -85,5 +84,10 @@ public class UserImpl implements UserDao {
 		return ns;
 		
 	}
+
+
+
+
+
 	
 }

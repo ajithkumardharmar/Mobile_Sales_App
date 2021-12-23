@@ -12,6 +12,14 @@ table, th, td {
   border-collapse: collapse;
   padding: 20px;
 }
+.btn_add{
+		padding: 12px;
+		background-color: lightbrown;
+		border-radius: 22px;
+		}
+		.btn_add:hover{
+		background-color: green;
+		}
   .h2_1 {
         text-align: center;
         background-color: bisque;
@@ -54,7 +62,7 @@ table, th, td {
     <div class="top_nav">
 
         <ul>
-            <li><a href="MobilePage.jsp">Home</a></li>
+            <li><a href="index.jsp">Home</a></li>
             <li style="float: right;"><a href="AdminLogin.jsp">Sign out</a></li>
             <li style="float: right;"><a class="active" href="AdminMain.jsp">Admin</a></li>
             <li><a href="#contact">Contact us</a></li>
@@ -68,7 +76,12 @@ table, th, td {
     <%
     ListAllProductImpl listAllProductDao =new ListAllProductImpl();
             ResultSet rs=listAllProductDao.viewProduct();
-    %>
+    %> <%if(session.getAttribute("deleteInfo")!=null){ %>
+            <h3  style="color: green;margin-left: 500px"><%=session.getAttribute("deleteInfo") %></h3><br>
+            <%} %>
+             <%if(session.getAttribute("updateInfo")!=null){ %>
+            <h3 style="color: green;margin-left: 500px"><%=session.getAttribute("updateInfo") %></h3><br>
+            <%} %>
     <table style="width: 90%;margin-left: 70px;">
     <tr>
      <th>Product Id</th>
@@ -88,29 +101,27 @@ table, th, td {
     <td><%=rs.getString(4) %></td>
     <td><%=rs.getString(5) %></td>
     <td> <form action="deleteProduct" method="post">
-   	 	  Product Id : <input type="text" value=<%=rs.getInt(1) %> disabled  name="deleteId" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="deleteId"><br><br>
+   	 	  Product Id : <input type="text" value=<%=rs.getInt(1) %>  readonly  name="deleteId" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="deleteId"><br><br>
        <button type="submit" class="btn_add">Delete</button><br><br>
-         <%if(session.getAttribute("deleteInfo")!=null){ %>
-            <h4 style="color: green"><%=session.getAttribute("deleteInfo") %></h4>
-            <%} %>
+         
         </form>
         <form action="updateProduct" method="post">
         
-        Product Id : <input type="text" name="updateId" value=<%=rs.getInt(1) %> disabled id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="updateId"><br><br>
+        Product Id : <input type="text" name="updateId" value=<%=rs.getInt(1) %> readonly id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="updateId"><br><br>
         <label class="add_label1">Standard_cost :</label>
          <input type="text" name="updateStandardPrice" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="add_inputs1"><br><br>
 
             <label class="add_label2">List Price :</label>
             <input type="text" name="updateListPrice" id="brand_textbox"  pattern="[0-9]{1,8}" maxlength="8" required class="add_inputs2"><br><br>
         	<button type="submit" class="btn_add">Update</button><br><br>
-        	 <%if(session.getAttribute("updateInfo")!=null){ %>
-            <h4 style="color: green"><%=session.getAttribute("updateInfo") %></h4>
-            <%} %>
+        	
         </form>
         </td>
     </tr>
     <%} %>
     </table>
-
+   
+       <%session.removeAttribute("deleteInfo"); %> 
+          <%session.removeAttribute("updateInfo"); %>  
 </body>
 </html>

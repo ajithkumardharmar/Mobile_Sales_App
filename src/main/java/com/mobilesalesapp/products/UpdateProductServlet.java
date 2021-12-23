@@ -27,7 +27,7 @@ public class UpdateProductServlet extends HttpServlet {
 		try {
 			HttpSession session =req.getSession();
 			session.setAttribute("updateInfo", "updated Successfully");
-			res.sendRedirect("AdminMain.jsp");
+			res.sendRedirect("ProductList.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

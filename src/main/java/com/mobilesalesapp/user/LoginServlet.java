@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mobilesalesapp.impl.UserImpl;
-import com.mobilesalesapp.model.LoginPojo;
+import com.mobilesalesapp.model.RegisterPojo;
+
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -30,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		String username=req.getParameter("username");
 		String password=req.getParameter("password");
 		
-		LoginPojo Login=new LoginPojo(username,password);
+		RegisterPojo Login=new RegisterPojo(null,username,null,password,null);
 		UserImpl userDao=new UserImpl();
 	
 	
@@ -42,9 +43,11 @@ public class LoginServlet extends HttpServlet {
 					String userId=ns.getString(1);
 					String email=ns.getString(3);
 					String name=ns.getString(2);
+					double wallet=ns.getDouble(7);
 					session.setAttribute("userId", userId);
 					session.setAttribute("email", email);
 					session.setAttribute("name", name);
+					session.setAttribute("wallet", wallet);
 					
 					res.sendRedirect("MobilePage.jsp");
 				}else {

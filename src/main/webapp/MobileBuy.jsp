@@ -99,7 +99,7 @@ li a:hover {
 }
 .buy_div{
 margin-left:400px;
-margin-top:200px;
+margin-top:100px;
 }
 .buy_button{
 position: relative;
@@ -144,7 +144,11 @@ position: relative;
 	Address : <input name="address" required="required" pattern="[a-zA-Z0-9\s,[]]{3,40}" type="text" ><br><br>
 	Pincode : <input name="pincode" required="required" pattern="[0-9]{6}" maxlength="6" type="text"><br><br>
 	Password: <input name="password" required="required" pattern="(?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password"><br><br><br>
-	<h4 style="margin-left: 50px">Total Price :<%=price%></h4><br>	
+	<h4 style="margin-left: 20px">Mobile Price     :<%=price%></h4><br>
+	<h4 style="margin-left: 20px">Discount 15%     :<%=(price*.15)%></h4><br>
+	<%double total=price-(price*.15);%>
+	<h4 style="margin-left: 20px;color: green">Total Price :<%=(price*.15)%></h4><br>
+	<%session.setAttribute("total",total); %>	
 	<%if(session.getAttribute("buying")!=null){ %>
 	<h4 style="color:red;margin-left: 50px"><%=session.getAttribute("buying") %></h3><br>
 	<%} %>

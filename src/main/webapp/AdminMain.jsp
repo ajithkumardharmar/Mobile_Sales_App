@@ -54,6 +54,10 @@
 		background-color: brown;
 		border-radius: 12px;
 		}
+		.btn_add:hover {
+		background-color: green;
+	}
+}
     </style>
 
 </head>
@@ -64,7 +68,7 @@
     <div class="top_nav">
 
         <ul>
-            <li><a href="MobilePage.jsp">Home</a></li>
+            <li><a href="index.jsp">Home</a></li>
            
             <li style="float: right;"><a href="AdminLogin.jsp">Sign out</a></li>
             <li style="float: right;"><a class="active" href="AdminMain.jsp">Admin</a></li>
@@ -131,8 +135,7 @@
 </div>
   </div>
          <%session.removeAttribute("product"); %> 
-         <%session.removeAttribute("deleteInfo"); %> 
-          <%session.removeAttribute("updateInfo"); %> 
+  
  
 </body>
 </html>
