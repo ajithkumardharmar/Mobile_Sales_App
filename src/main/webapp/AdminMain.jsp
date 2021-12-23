@@ -105,30 +105,8 @@
             <h4 style="color: green"><%=session.getAttribute("product") %></h4>
             <%} %>
         </form><br><br>
-        <hr><br>
-        <h2>Delete Product</h2><br>
-        <form action="deleteProduct" method="post">
-        Product Id : <input type="text" name="deleteId" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="deleteId"><br><br>
-       <button type="submit" class="btn_add">Delete</button><br><br>
-         <%if(session.getAttribute("deleteInfo")!=null){ %>
-            <h4 style="color: green"><%=session.getAttribute("deleteInfo") %></h4>
-            <%} %>
-        </form>
-         <hr><br>
-          <h2>Update Product</h2><br>
-        <form action="updateProduct" method="post">
-        Product Id : <input type="text" name="updateId" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="updateId"><br><br>
-        <label class="add_label1">Standard_cost :</label>
-         <input type="text" name="updateStandardPrice" id="brand_textbox" pattern="[0-9]{1,8}" maxlength="8" required class="add_inputs1"><br><br>
-
-            <label class="add_label2">List Price :</label>
-            <input type="text" name="updateListPrice" id="brand_textbox"  pattern="[0-9]{1,8}" maxlength="8" required class="add_inputs2"><br><br>
-        	<button type="submit" class="btn_add">Update</button><br><br>
-        	 <%if(session.getAttribute("updateInfo")!=null){ %>
-            <h4 style="color: green"><%=session.getAttribute("updateInfo") %></h4>
-            <%} %>
-        </form>
-         <hr><br>
+     	
+         <br>
 			<a href="ProductList.jsp">Show All Products</a><br><br>
 			<a href="ViewUser.jsp">Show All Users</a><br><br>
 			

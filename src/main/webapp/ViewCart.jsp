@@ -147,7 +147,11 @@ String userId1=(String)session.getAttribute("userId");
 int userId=Integer.parseInt(userId1);
 Connection con=ConnectionPro.connect();
 String query="select * from carts_table where user_id=?";
+String query1="select * from carts_table where user_id=?";
 //Statement st=con.createStatement();
+PreparedStatement pre1 =con.prepareStatement(query);
+pre1.setInt(1,userId );
+ResultSet rs1=pre1.executeQuery();
 PreparedStatement pre =con.prepareStatement(query);
 pre.setInt(1,userId );
 	ResultSet rs=pre.executeQuery();
@@ -155,6 +159,7 @@ pre.setInt(1,userId );
 	
   
     System.out.println("rsnext");%>
+    <%if(rs1.next()) {%>
      
     <table style="width: 80%;margin-left: 100px;">
     <tr>
@@ -166,7 +171,7 @@ pre.setInt(1,userId );
     </tr>
    
     <%while(rs.next()){ 
-     if(rs.getString(4)!=null){%>
+     %>
     
     <tr>
     <td><%=rs.getInt(3) %></td>
@@ -175,10 +180,10 @@ pre.setInt(1,userId );
     <td><%=rs.getDouble(6) %></td>
    
     </tr>
-    <%}
+    <%}}
      else{%>
-    	 <h1 style="color: red;">Cart is Empty</h1>
-     <% }} %>
+    	 <h1 style="color: red;margin-left: 500px;margin-top: 150px">Cart is Empty</h1>
+     <% } %>
      
      
     </table>

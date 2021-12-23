@@ -9,12 +9,12 @@ import com.mobilesalesapp.dao.UserDao;
 import com.mobilesalesapp.model.RegisterPojo;
 
 public class UserImpl implements UserDao {
-	public  void register(RegisterPojo p)  {
-		
-		Connection con=ConnectionPro.connect();
-		
-		String query="insert into users_table (first_name,email,phone_number,password,confirm_password) values(?,?,?,?,?)";
-		String query2="commit";
+	public void register(RegisterPojo p) {
+
+		Connection con = ConnectionPro.connect();
+
+		String query = "insert into users_table (first_name,email,phone_number,password,confirm_password) values(?,?,?,?,?)";
+		String query2 = "commit";
 		PreparedStatement pre;
 		try {
 			pre = con.prepareStatement(query);
@@ -31,19 +31,16 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		//System.out.println(i);
+
+		// System.out.println(i);
 	}
-	
-	
-	
-	
-	public  ResultSet fetch(RegisterPojo login) {
-	//List<LoginPojo> loginpojo = new ArrayList();
-		Connection con=ConnectionPro.connect();
-		String query="select * from users_table  where email in ? and password in ?";
+
+	public ResultSet fetch(RegisterPojo login) {
+		// List<LoginPojo> loginpojo = new ArrayList();
+		Connection con = ConnectionPro.connect();
+		String query = "select * from users_table  where email in ? and password in ?";
 		PreparedStatement pre;
-		ResultSet rs=null;
+		ResultSet rs = null;
 		try {
 			pre = con.prepareStatement(query);
 			pre.setString(1, login.getEmail());
@@ -53,41 +50,28 @@ public class UserImpl implements UserDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 
-	return rs;
-	
+		return rs;
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	public  ResultSet userDetails() {
-		Connection con=ConnectionPro.connect();
-		String query="select first_name,email,phone_number from users_table";
+
+	public ResultSet userDetails() {
+		Connection con = ConnectionPro.connect();
+		String query = "select pk_user_id,first_name,email,phone_number,wallet from users_table";
 		Statement st;
-		ResultSet ns=null;
+		ResultSet ns = null;
 		try {
 			st = con.createStatement();
-			//st.executeQuery(query);
-			ns=st.executeQuery(query);
-			
-			
+			// st.executeQuery(query);
+			ns = st.executeQuery(query);
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return ns;
-		
+
 	}
 
-
-
-
-
-	
 }

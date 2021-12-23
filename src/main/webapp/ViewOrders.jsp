@@ -1,6 +1,6 @@
-<%@page import="com.mobilesalesapp.impl.ViewOrdersImpl"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import ="com.mobilesalesapp.impl.ViewOrdersImpl" import ="java.sql.*" import ="com.mobilesalesapp.model.OrderPojo" %>
+    pageEncoding="ISO-8859-1" import ="com.mobilesalesapp.impl.OrderImpl" import ="java.sql.*" import ="com.mobilesalesapp.model.OrderPojo" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -148,9 +148,14 @@ margin-top:40px;
     	int userId = Integer.parseInt(user);
     	System.out.println(userId);
     	OrderPojo orderPojo=new OrderPojo(userId);
-    	ViewOrdersImpl order=new ViewOrdersImpl();
+    	OrderImpl order=new OrderImpl();
     	ResultSet rs=order.viewAllOrders(orderPojo);
+    	ResultSet rs1=order.viewAllOrders(orderPojo);
     %>
+    <%
+    if(rs1.next() ){%>
+    	
+   
     	
     <table style="width: 80%;margin-left: 100px;">
     <tr>
@@ -160,9 +165,11 @@ margin-top:40px;
     <th>Order Date</th>
     <th>Delivery Address</th>
     </tr>
+    
+  
+    
  
-    <%while(rs.next()){
-    if(rs.getString(4)!=null){%>
+    <%while(rs.next()){%>
     <tr>
     <td><%=rs.getInt(1) %></td>
     <td><%=rs.getString(2) %></td>
@@ -171,15 +178,16 @@ margin-top:40px;
     <td><%=rs.getString(5) %></td>
     </tr>
   
+    	<% }%>	
     		
-    	<%	
-    }
-    else{%>
-    	<h1>Order is empty</h1>
-   <% }}%>
+    	
+   
     </table>
 
-
+ <% }
+   else{%>
+    	<h1 style="color: red ;margin-left: 500px;margin-top: 150px">Order is not placed yet</h1>
+   <% }%>
 <!--  <h3 style="color: red;margin-left: 300px">No Order Placed</h3> -->
 
 

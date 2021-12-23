@@ -12,12 +12,11 @@ public class OrderImpl implements OrderDao {
 	public int updateWallet1(UpdateWalletPojo obj1) {
 		int i = 0;
 		Connection con = ConnectionPro.connect();
-		String query1="commit";
-		
-		
+		String query1 = "commit";
+
 		String query = "update users_table set wallet = (select wallet from users_table where pk_user_id=?)-? where pk_user_id=? and password=?";
 		try {
-			Statement st=con.createStatement();
+			Statement st = con.createStatement();
 			st.executeUpdate(query1);
 			PreparedStatement pre = con.prepareStatement(query);
 			pre.setInt(1, obj1.getUserId());
@@ -59,5 +58,22 @@ public class OrderImpl implements OrderDao {
 
 	}
 
+	public ResultSet viewAllOrders(OrderPojo orderPojo) {
+
+		Connection con = ConnectionPro.connect();
+		String query = "select order_id,status,price,order_date,address " + "from orders_table where fk_user_id=?";
+		ResultSet rs = null;
+		try {
+			System.out.println(orderPojo.getUserId());
+			PreparedStatement pre = con.prepareStatement(query);
+			pre.setInt(1, orderPojo.getUserId());
+			rs = pre.executeQuery();
+			System.out.println(rs);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.getMessage();
+		}
+		return rs;
+	}
 
 }

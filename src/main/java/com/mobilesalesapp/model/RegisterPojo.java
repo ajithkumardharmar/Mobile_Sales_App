@@ -2,12 +2,31 @@ package com.mobilesalesapp.model;
 
 public class RegisterPojo {
 	
-	
+	private int userId;
 	private String name;
 	private String email;
 	private Long phone_number;
 	private String password;
+	private double wallet;
 	
+	
+	public RegisterPojo(int userId, double wallet) {
+		super();
+		this.userId = userId;
+		this.wallet = wallet;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public double getWallet() {
+		return wallet;
+	}
+	public void setWallet(double wallet) {
+		this.wallet = wallet;
+	}
 	private String confirm_password;
 	public String getName() {
 		return name;

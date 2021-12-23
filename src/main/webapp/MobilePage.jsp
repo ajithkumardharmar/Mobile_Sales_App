@@ -126,7 +126,6 @@
             <li><a class="active" href="MobilePage.jsp	">Home</a></li>
             <li><a href="ViewOrders.jsp">My Orders</a></li>
             <li><a href="ViewCart.jsp">Cart</a></li>
-            <li><a href="#contact">Wallet</a></li>
             <li><a href="#contact">Contact us</a></li>
             <li><a href="#about us">About us</a></li>
             <li style="float: right;"><a href="index.jsp">Logout</a></li>

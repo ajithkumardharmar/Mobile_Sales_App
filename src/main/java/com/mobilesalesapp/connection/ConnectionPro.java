@@ -1,4 +1,5 @@
 package com.mobilesalesapp.connection;
+
 import java.sql.*;
 
 public class ConnectionPro {
@@ -6,7 +7,7 @@ public class ConnectionPro {
 		Connection con = null;
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","oracle");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "oracle");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

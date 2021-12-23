@@ -31,7 +31,7 @@ public class AddProductServlet extends HttpServlet {
 			obj2.add(obj);
 			HttpSession session=req.getSession();
 			session.setAttribute("product","Product succesfully added");
-			res.sendRedirect("AdminMain.jsp");
+			res.sendRedirect("ProductList.jsp");
 		
     	   
        } 
