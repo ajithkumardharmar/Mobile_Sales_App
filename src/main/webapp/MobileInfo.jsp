@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" import ="java.sql.*" import ="com.mobilesalesapp.connection.ConnectionPro" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -137,23 +137,25 @@ margin-top:40px;
 
 
 	</div>
-	<%session.setAttribute("productId", 41);
-	  session.setAttribute("price", 29000);%>
+	<%
+	session.setAttribute("productId", 41);
+	 
+	  int productId=(int)session.getAttribute("productId");
+	  
+	  String query="select * from products where pk_product_id= ?";
+	  Connection con=ConnectionPro.connect();
+	  PreparedStatement pre=con.prepareStatement(query);
+	  pre.setInt(1, productId);
+	  ResultSet rs=pre.executeQuery();
+	  if(rs.next()){
+	  %>
 	<div class="body_main">
 	
 		<a><img id="41"
-			src="https://rukminim1.flixcart.com/image/312/312/k9loccw0/mobile/p/z/q/apple-iphone-se-mxd02hn-a-original-imafrcpjfehbbqgb.jpeg?q=70"
+			src="<%=rs.getString(6) %>"
 			alt=""></a>
 		<div class="phoneInfo">
-			<pre>APPLE iPhone SE (Black, 128 GB)
-4.51,35,254 Ratings & 10,960 Reviews
-128 GB ROM
-11.94 cm (4.7 inch) Retina HD Display
-12MP Rear Camera | 7MP Front Camera
-A13 Bionic Chip with 3rd Gen Neural Engine Processor
-Water and Dust Resistant (1 meter for Upto 30 minutes, IP67)
-Fast Charge Capable
-Wireless charging (Works with Qi Chargers | Qi Chargers are Sold Separately
+			<pre><%=rs.getString(3) %>
 </pre>
 
 			<div class="but_log">
@@ -163,6 +165,9 @@ Wireless charging (Works with Qi Chargers | Qi Chargers are Sold Separately
 		</div>
 	</div>
 
-
+<% 
+double price= rs.getDouble(5);
+session.setAttribute("price",price);
+} %>
 </body>
 </html>

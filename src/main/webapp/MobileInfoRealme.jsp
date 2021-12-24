@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" import ="java.sql.*" import ="com.mobilesalesapp.connection.ConnectionPro"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,20 +138,23 @@ margin-top:40px;
 
 	</div>
 	<%session.setAttribute("productId", 43);
-	  session.setAttribute("price", 13000);%>
+	  
+		  int productId=(int)session.getAttribute("productId");
+	  
+	  String query="select * from products where pk_product_id= ?";
+	  Connection con=ConnectionPro.connect();
+	  PreparedStatement pre=con.prepareStatement(query);
+	  pre.setInt(1, productId);
+	  ResultSet rs=pre.executeQuery();
+	  if(rs.next()){
+	  %>
 	<div class="body_main">
 	
-		<a><img id="42"
-			src="https://rukminim1.flixcart.com/image/312/312/ktx9si80/mobile/q/a/c/narzo-50a-rmx3430-realme-original-imag75kybaer8scz.jpeg?q=70"
+		<a><img id="41"
+			src="<%=rs.getString(6) %>"
 			alt=""></a>
 		<div class="phoneInfo">
-			<pre>Realme Narzo 50A (Oxygen Blue, 64 GB)
-4.41,36,627 Ratings & 7,917 Reviews
-4 GB RAM | 64 GB ROM | Expandable Upto 256 GB
-16.51 cm (6.5 inch) HD+ Display
-50MP + 2MP + 2MP | 8MP Front Camera
-6000 mAh Battery
-MediaTek Helio G85 Processor
+			<pre><%=rs.getString(3) %>
 </pre>
 
 			<div class="but_log">
@@ -160,7 +163,9 @@ MediaTek Helio G85 Processor
 			</div>
 		</div>
 	</div>
-
+	<%double price= rs.getDouble(5);
+	session.setAttribute("price",price);
+	} %>
 
 </body>
 </html>

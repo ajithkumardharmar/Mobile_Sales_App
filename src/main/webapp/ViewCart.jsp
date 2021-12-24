@@ -148,6 +148,9 @@ int userId=Integer.parseInt(userId1);
 Connection con=ConnectionPro.connect();
 String query="select * from carts_table where user_id=?";
 String query1="select * from carts_table where user_id=?";
+String query3="select * from photo";
+PreparedStatement pre2 =con.prepareStatement(query3);
+ResultSet rs2=pre2.executeQuery();
 //Statement st=con.createStatement();
 PreparedStatement pre1 =con.prepareStatement(query);
 pre1.setInt(1,userId );
@@ -159,7 +162,14 @@ pre.setInt(1,userId );
 	
   
     System.out.println("rsnext");%>
+    <%if(rs2.next()) { 
+    System.out.println(rs2.getString(1));%>
+    <img alt="not show" src="<%=rs2.getString(1) %>">
+    <%} %>
+    
+    
     <%if(rs1.next()) {%>
+   
      
     <table style="width: 80%;margin-left: 100px;">
     <tr>

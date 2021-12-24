@@ -42,6 +42,7 @@ public class UserImpl implements UserDao {
 		PreparedStatement pre;
 		ResultSet rs = null;
 		try {
+			
 			pre = con.prepareStatement(query);
 			pre.setString(1, login.getEmail());
 			pre.setString(2, login.getPassword());

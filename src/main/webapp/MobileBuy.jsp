@@ -134,7 +134,7 @@ position: relative;
 
 		</ul>
 
-	<%int price=(int)session.getAttribute("price"); %>
+	<%double price=(double)session.getAttribute("price"); %>
 
 	</div></body>
 	<div class="buy_div">

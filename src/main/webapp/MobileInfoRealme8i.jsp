@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" import ="java.sql.*" import ="com.mobilesalesapp.connection.ConnectionPro"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,20 +138,22 @@ margin-top:40px;
 
 	</div>
 	<%session.setAttribute("productId", 44);
-	  session.setAttribute("price", 14000);%>
+	 
+	  int productId=(int)session.getAttribute("productId"); 
+	  String query="select * from products where pk_product_id= ?";
+	  Connection con=ConnectionPro.connect();
+	  PreparedStatement pre=con.prepareStatement(query);
+	  pre.setInt(1, productId);
+	  ResultSet rs=pre.executeQuery();
+	  if(rs.next()){
+	  %>
 	<div class="body_main">
 	
-		<a><img id="42"
-			src="https://rukminim1.flixcart.com/image/312/312/ktbu6q80/mobile/x/w/y/8i-rmx3151-realme-original-imag6zhnabagtrzu.jpeg?q=70"
+		<a><img id="41"
+			src="<%=rs.getString(6) %>"
 			alt=""></a>
 		<div class="phoneInfo">
-			<pre>realme 8i (Space Purple, 64 GB)
-4.593,384 Ratings & 5,432 Reviews
-4 GB RAM | 64 GB ROM | Expandable Upto 256 GB
-16.76 cm (6.6 inch) Full HD+ Display
-50MP + 2MP + 2MP | 16MP Front Camera
-5000 mAh Battery
-MediaTek Helio G96 Processor
+			<pre><%=rs.getString(3) %>
 </pre>
 
 			<div class="but_log">
@@ -160,6 +162,10 @@ MediaTek Helio G96 Processor
 			</div>
 		</div>
 	</div>
+	<%double price= rs.getDouble(5);
+	session.setAttribute("price",price);
+	} %>
+ 
 
 
 </body>

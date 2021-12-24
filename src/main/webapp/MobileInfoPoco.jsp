@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" import ="java.sql.*" import ="com.mobilesalesapp.connection.ConnectionPro" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -138,20 +138,23 @@ margin-top:40px;
 
 	</div>
 	<%session.setAttribute("productId", 42);
-	  session.setAttribute("price", 16000);%>
+
+	  int productId=(int)session.getAttribute("productId");
+	  
+	  String query="select * from products where pk_product_id= ?";
+	  Connection con=ConnectionPro.connect();
+	  PreparedStatement pre=con.prepareStatement(query);
+	  pre.setInt(1, productId);
+	  ResultSet rs=pre.executeQuery();
+	  if(rs.next()){
+	  %>
 	<div class="body_main">
 	
-		<a><img id="42"
-			src="https://rukminim1.flixcart.com/image/312/312/ku4ezrk0/mobile/b/o/m/c31-mzb0a0min-poco-original-imag7bzqxekkpkrv.jpeg?q=70"
+		<a><img id="41"
+			src="<%=rs.getString(6) %>"
 			alt=""></a>
 		<div class="phoneInfo">
-			<pre>POCO C31 (Royal Blue, 64 GB)
-4.46,584 Ratings & 317 Reviews
-4 GB RAM | 64 GB ROM | Expandable Upto 512 GB
-16.59 cm (6.53 inch) HD+ Display
-13MP + 2MP + 2MP | 5MP Front Camera
-5000 mAh Lithium-ion Polymer Battery
-MediaTek Helio G35 Processor
+			<pre><%=rs.getString(3) %>
 </pre>
 
 			<div class="but_log">
@@ -160,6 +163,9 @@ MediaTek Helio G35 Processor
 			</div>
 		</div>
 	</div>
+	<%double price= rs.getDouble(5);
+	session.setAttribute("price",price);
+	} %>
 
 
 </body>

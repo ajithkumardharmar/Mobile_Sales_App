@@ -108,7 +108,7 @@ li a:hover {
 			<td><%=ns.getDouble(5)%></td>
 			<td>
 				<form action="addWallet" method="post">
-					User_id :<input type="text" name="walletUserId"
+					User_id :<input type="text" name ="walletUserId"
 						value="<%=ns.getInt(1)%>" readonly pattern="[0-9]{1,8}"
 						maxlength="8" required><br>
 					<br> Wallet :<input type="text" name="walletAmount"
