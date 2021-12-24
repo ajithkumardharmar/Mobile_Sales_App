@@ -7,6 +7,7 @@ if (session.getAttribute("name") == (null)) {
 }
 String name = (String) session.getAttribute("name");
 String userId1 = (String) session.getAttribute("userId");
+
 double wallet = (double) session.getAttribute("wallet");
 int userId = Integer.parseInt(userId1);
 System.out.println(userId);

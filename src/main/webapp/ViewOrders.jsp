@@ -145,8 +145,9 @@ margin-top:40px;
 	</div><br><br>
     <%
     String user = (String) session.getAttribute("userId");
+    System.out.println("my"+user);
     	int userId = Integer.parseInt(user);
-    	System.out.println(userId);
+    	System.out.println("my1	"+userId);
     	OrderPojo orderPojo=new OrderPojo(userId);
     	OrderImpl order=new OrderImpl();
     	ResultSet rs=order.viewAllOrders(orderPojo);
@@ -164,6 +165,7 @@ margin-top:40px;
     <th>Price</th>
     <th>Order Date</th>
     <th>Delivery Address</th>
+    <th>Cancel Order</th>
     </tr>
     
   
@@ -176,6 +178,13 @@ margin-top:40px;
     <td><%=rs.getDouble(3) %></td>
     <td><%=rs.getString(4) %></td>
     <td><%=rs.getString(5) %></td>
+    <td>
+    <form action="cancelOrder" method="post" >
+    Order Id :<input type="text" name="cancelId" value="<%=rs.getInt(1) %>" readonly ><br><br>
+    
+    <button type="submit" class="but_add ">Cancel</button>
+    </form>
+    </td>
     </tr>
   
     	<% }%>	

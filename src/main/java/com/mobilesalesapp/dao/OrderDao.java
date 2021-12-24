@@ -11,5 +11,7 @@ public interface OrderDao {
 	public int insertOrder(OrderPojo obj2);
 	
 	public ResultSet viewAllOrders(OrderPojo orderPojo);
+	
+	public void orderCancel(OrderPojo orderPojo);
 
 }

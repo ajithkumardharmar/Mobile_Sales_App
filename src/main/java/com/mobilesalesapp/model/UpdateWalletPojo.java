@@ -3,7 +3,7 @@ package com.mobilesalesapp.model;
 public class UpdateWalletPojo {
 	private int userId;
 	private String password;
-	private long price;
+	private double price;
 	public int getUserId() {
 		return userId;
 	}
@@ -16,15 +16,16 @@ public class UpdateWalletPojo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public long getPrice() {
+	
+	
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(long price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	
-	
-	public UpdateWalletPojo(int userId, String password, long price) {
+	public UpdateWalletPojo(int userId, String password, double price) {
 		super();
 		this.userId = userId;
 		this.password = password;

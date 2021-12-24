@@ -24,7 +24,7 @@ public class OrderServlet extends HttpServlet {
 		String pincode = req.getParameter("pincode");
 		String fullAddress = address + "-" + pincode;
 		String password = req.getParameter("password");
-		int price = (int) session.getAttribute("total");
+		double price = (double) session.getAttribute("total");
 		System.out.println(userId + productId + fullAddress + password + price + userId);
 		UpdateWalletPojo obj1 = new UpdateWalletPojo(userId, password, price);
 		OrderImpl orderDao = new OrderImpl();

@@ -146,7 +146,7 @@ position: relative;
 	Password: <input name="password" required="required" pattern="(?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password"><br><br><br>
 	<h4 style="margin-left: 20px">Mobile Price     :<%=price%></h4><br>
 	<h4 style="margin-left: 20px">Discount 15%     :<%=(price*.15)%></h4><br>
-	<%double total=price-(price*.15);%>
+	<%double total=(price-(price*.15));%>
 	<h4 style="margin-left: 20px;color: green">Total Price :<%=(price*.15)%></h4><br>
 	<%session.setAttribute("total",total); %>	
 	<%if(session.getAttribute("buying")!=null){ %>

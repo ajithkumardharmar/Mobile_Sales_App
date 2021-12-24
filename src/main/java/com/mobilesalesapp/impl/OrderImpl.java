@@ -20,7 +20,7 @@ public class OrderImpl implements OrderDao {
 			st.executeUpdate(query1);
 			PreparedStatement pre = con.prepareStatement(query);
 			pre.setInt(1, obj1.getUserId());
-			pre.setLong(2, obj1.getPrice());
+			pre.setDouble(2, obj1.getPrice());
 			pre.setInt(3, obj1.getUserId());
 			pre.setString(4, obj1.getPassword());
 			System.out.println("1");
@@ -42,9 +42,9 @@ public class OrderImpl implements OrderDao {
 		// ResultSet rs2=null;
 		try {
 			PreparedStatement pre = con.prepareStatement(query2);
-			pre.setInt(1, obj2.getUserId());
+			pre.setInt(1, obj2. getUserId());
 			pre.setInt(2, obj2.getProductId());
-			pre.setLong(3, obj2.getPrice());
+			pre.setDouble(3, obj2.getPrice());
 			pre.setString(4, obj2.getAddress());
 			i = pre.executeUpdate();
 			// pre.executeQuery(query2);
@@ -74,6 +74,27 @@ public class OrderImpl implements OrderDao {
 			e.getMessage();
 		}
 		return rs;
+	}
+	public void orderCancel(OrderPojo orderPojo) {
+		Connection con=ConnectionPro.connect();
+		String query="commit";
+		String query2="update orders_table set status='Cancelled' where order_id=? ";
+		try {
+			System.out.println(orderPojo.getOrerId());
+			PreparedStatement pre1=con.prepareStatement(query);
+			pre1.executeUpdate();
+			PreparedStatement pre=con.prepareStatement(query2);
+			pre.setInt(1, orderPojo.getOrerId());
+			int i=pre.executeUpdate();
+			System.out.println(i);
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
 	}
 
 }

@@ -164,7 +164,7 @@ pre.setInt(1,userId );
     System.out.println("rsnext");%>
     <%if(rs2.next()) { 
     System.out.println(rs2.getString(1));%>
-    <img alt="not show" src="<%=rs2.getString(1) %>">
+   
     <%} %>
     
     

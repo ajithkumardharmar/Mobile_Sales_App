@@ -50,6 +50,8 @@
     	padding: 0;
 		}
 		.btn_add{
+		color:white;
+		text-decoration:none;
 		padding: 12px;
 		background-color: brown;
 		border-radius: 12px;
@@ -99,16 +101,16 @@
             <label class="add_label2">List Price :</label>
             <input type="text" name="list_price" id="brand_textbox"  pattern="[0-9]{1,8}" maxlength="8" required class="add_inputs2"><br><br>
 
-            <button type="submit" class="btn_add">Add</button><br><br>
+            <button type="submit" style="margin-left: 80px" class="btn_add">Add</button><br><br>
             
             <%if(session.getAttribute("product")!=null){ %>
             <h4 style="color: green"><%=session.getAttribute("product") %></h4>
             <%} %>
-        </form><br><br>
+        </form><br>
      	
          <br>
-			<a href="ProductList.jsp">Show All Products</a><br><br>
-			<a href="ViewUser.jsp">Show All Users</a><br><br>
+			<a class="btn_add"  style="margin-left: 40px" href="ProductList.jsp">Show All Products</a><br><br><br><br>
+			<a class="btn_add"  style="margin-left: 40px" href="ViewUser.jsp">Show All Users</a><br><br>
 			
 </div>
   </div>
