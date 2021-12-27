@@ -22,6 +22,7 @@ public class CartImpl implements CartDao {
 		double price = 0;
 
 		try {
+			System.out.println("cartProduct"+cartPojo.getProductId());
 			PreparedStatement pre = con.prepareStatement(query);
 			pre.setInt(1, cartPojo.getProductId());
 			ResultSet rs = pre.executeQuery();
@@ -32,7 +33,7 @@ public class CartImpl implements CartDao {
 				price = rs.getDouble(5);
 
 			}
-		//	System.out.println(cartPojo.getProductId() + productName + description + price + cartPojo.getUserId());
+			System.out.println(cartPojo.getProductId() + productName + description + price + cartPojo.getUserId());
 			PreparedStatement pre2 = con.prepareStatement(query3);
 			System.out.println("Dao2");
 			pre2.setInt(1, cartPojo.getUserId());
@@ -40,9 +41,9 @@ public class CartImpl implements CartDao {
 			pre2.setString(3, productName);
 			pre2.setString(4, description);
 			pre2.setDouble(5, price);
-			//System.out.println("Dao3");
+			System.out.println("Dao3");
 			rs = pre2.executeQuery();
-			
+			System.out.println("Dao4");
 			System.out.println(cartPojo.getProductId() + productName + description + price + cartPojo.getUserId());
 			PreparedStatement pre1 = con.prepareStatement(query4);
 			pre1.executeUpdate();

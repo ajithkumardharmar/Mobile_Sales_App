@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.mobilesalesapp.connection.ConnectionPro;
 import com.mobilesalesapp.dao.UserDao;
+import com.mobilesalesapp.model.ContactUsPojo;
 import com.mobilesalesapp.model.RegisterPojo;
 
 public class UserImpl implements UserDao {
@@ -73,6 +74,25 @@ public class UserImpl implements UserDao {
 
 		return ns;
 
+	}
+	public void contactUs(ContactUsPojo contactUs) {
+		Connection con = ConnectionPro.connect();
+		String query = "insert into contactus values(?,?,?,?) ";
+		try {
+			PreparedStatement pre =con.prepareStatement(query);
+			pre.setString(1, contactUs.getName());
+			pre.setString(2, contactUs.getEmail());
+			pre.setLong(3, contactUs.getPhoneNumber());
+			pre.setString(4, contactUs.getDescription());
+			int i=pre.executeUpdate();
+			System.out.println(i);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

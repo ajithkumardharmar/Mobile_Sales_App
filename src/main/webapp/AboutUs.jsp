@@ -1,17 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import ="com.mobilesalesapp.connection.ConnectionPro" import ="java.sql.* "%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>ViewCartItems</title>
+<title>OrderPlaced</title>
 </head>
 <style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 20px;
-}
 .h2_1 {
 	text-align: center;
 	background-color: bisque;
@@ -118,6 +113,11 @@ li a:hover {
 .but_log{
 margin-top:40px;
 }
+.aboutUs{
+margin-left: 400px;
+
+
+}
 
 * {
 	margin: 0;
@@ -130,77 +130,27 @@ margin-top:40px;
 	<div class="top_nav">
 
 		<ul>
-			<li><a  href="MobilePage.jsp">Home</a></li>
-			<li><a  href="ViewOrders.jsp">My Orders</a></li>
-            <li><a class="active" href="ViewCart.jsp">Cart</a></li>
+			<li><a href="MobilePage.jsp">Home</a></li>
+			<li><a href="ViewOrders.jsp">My Orders</a></li>
+            <li><a href="ViewCart.jsp">Cart</a></li>
 			<li><a href="#contact">Contact us</a></li>
-			<li><a href="AboutUs.jsp">About us</a></li>
+			<li><a class="active" href="AboutUs.jsp">About us</a></li>
 			<li style="float: right;"><a href="index.jsp">Logout</a></li>
 			<li style="float: right;"><a href="AdminLogin.jsp">Admin</a></li>
 
 		</ul>
 
 
-	</div><br><br>
-<%
-String userId1=(String)session.getAttribute("userId");
-int userId=Integer.parseInt(userId1);
-Connection con=ConnectionPro.connect();
-String query="select * from carts_table where user_id=?";
-String query1="select * from carts_table where user_id=?";
-String query3="select * from photo";
-PreparedStatement pre2 =con.prepareStatement(query3);
-ResultSet rs2=pre2.executeQuery();
-//Statement st=con.createStatement();
-PreparedStatement pre1 =con.prepareStatement(query);
-pre1.setInt(1,userId );
-ResultSet rs1=pre1.executeQuery();
-PreparedStatement pre =con.prepareStatement(query);
-pre.setInt(1,userId );
-	ResultSet rs=pre.executeQuery();
+	</div><br>
+	<h1 style="margin-left: 500px ;">About Us</h1>
+	<br><br>
 	
-	
-  
-    System.out.println("rsnext");%>
-    <%if(rs2.next()) { 
-    System.out.println(rs2.getString(1));%>
-   
-    <%} %>
-    
-    
-    <%if(rs1.next()) {%>
-   
-     
-    <table style="width: 85%;margin-left: 70px;">
-    <tr>
-     <th>Product Id</th>
-    <th>Product Name</th>
-    <th>Description</th>
-    <th>Price</th>
-    
-  
-    </tr>
-   
-    <%while(rs.next()){ 
-     %>
-    
-    <tr>
-    <td><%=rs.getInt(3) %></td>
-    <td><%=rs.getString(4) %></td>
-    <td><%=rs.getString(5) %></td>
-    <td><%=rs.getDouble(6) %></td>
-   
-    </tr>
-    <%}}
-     else{%>
-    	 <h1 style="color: red;margin-left: 500px;margin-top: 150px">Cart is Empty</h1>
-     <% } %>
-     
-     
-    </table>
-	
-	
-	
-	
+	<img style="margin-left: 330px;width: 40%" alt="company" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTZ7GN8OwM8TFeCze1GaMda33q_-Ps9LBcxBz_gRrEsUstMr97K">
+	<div class="aboutUs"><br><br>
+	<h2>We are the Best for</h2>
+	<h3>Sales</h3>
+	<h3>Service </h3>
+	<h3>Providing a Quality Product Only</h3>
+	</div>
 </body>
 </html>

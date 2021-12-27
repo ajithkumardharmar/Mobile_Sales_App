@@ -99,7 +99,7 @@ li a:hover {
 }
 .buy_div{
 margin-left:400px;
-margin-top:100px;
+margin-top:50px;
 }
 .buy_button{
 position: relative;
@@ -128,7 +128,7 @@ position: relative;
 			<li><a href="ViewOrders.jsp">My Orders</a></li>
             <li><a href="ViewCart.jsp">Cart</a></li>
 			<li><a href="#contact">Contact us</a></li>
-			<li><a href="#about us">About us</a></li>
+			<li><a href="AboutUs.jsp">About us</a></li>
 			<li style="float: right;"><a href="index.jsp">Logout</a></li>
 			<li style="float: right;"><a href="AdminLogin.jsp">Admin</a></li>
 
@@ -141,13 +141,16 @@ position: relative;
 	<form action="buying" method="post"><br>
 	<h4 style="margin-left: 50px;color: blue">Hello <%=name %></h4><br>
 	
-	Address : <input name="address" required="required" pattern="[a-zA-Z0-9\s,[]]{3,40}" type="text" ><br><br>
-	Pincode : <input name="pincode" required="required" pattern="[0-9]{6}" maxlength="6" type="text"><br><br>
-	Password: <input name="password" required="required" pattern="(?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password"><br><br><br>
+	Address Line  : <input autocomplete="off" name="address1" required="required" pattern="[a-zA-Z0-9\s,[]]{3,40}" type="text" ><br><br>
+	City/Town    : <input autocomplete="off" name="address2" required="required" pattern="[a-zA-Z0-9\s,[]]{3,40}" type="text" ><br><br>
+	Pincode : <input autocomplete="off" name="pincode" required="required" pattern="[0-9]{6}" maxlength="6" type="text"><br><br>
+	Phone Number :<input autocomplete="off" class="c_user2" name="phone_number" type="text"
+                pattern="[6789]{1}+[0-9]{9}" maxlength="10"  title="Enter only 10 digit number" required><br><br>
+	Password: <input autocomplete="off" name="password" required="required" pattern="(?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" type="password"><br><br><br>
 	<h4 style="margin-left: 20px">Mobile Price     :<%=price%></h4><br>
 	<h4 style="margin-left: 20px">Discount 15%     :<%=(price*.15)%></h4><br>
 	<%double total=(price-(price*.15));%>
-	<h4 style="margin-left: 20px;color: green">Total Price :<%=(price*.15)%></h4><br>
+	<h4 style="margin-left: 20px;color: green">Total Price :<%=total%></h4><br>
 	<%session.setAttribute("total",total); %>	
 	<%if(session.getAttribute("buying")!=null){ %>
 	<h4 style="color:red;margin-left: 50px"><%=session.getAttribute("buying") %></h3><br>

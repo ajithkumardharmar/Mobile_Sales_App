@@ -17,7 +17,7 @@ public class CartServlet extends HttpServlet {
 		HttpSession session=req.getSession();
 		String user = (String) session.getAttribute("userId");
 		int userId = Integer.parseInt(user);
-		System.out.println(userId);
+		System.out.println("Cart "+userId);
 		int productId = (int) session.getAttribute("productId");
 		CartPojo cartPojo=new CartPojo(userId,productId);
 		CartImpl  cartDao=new CartImpl();

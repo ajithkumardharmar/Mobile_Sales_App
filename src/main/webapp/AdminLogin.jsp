@@ -15,7 +15,7 @@
             <form  action="login_form" method="post">
                 <h3 class="c_login">Admin</h3>
                 <label class="c_lab" for="">AdminUser</label><br>
-                <input class="c_user" name="admin" pattern="[a-z][a-z0-9_.]+@[a-z0-9.]+[.][a-z]+"  
+                <input autocomplete="off" class="c_user" name="admin" pattern="[a-z][a-z0-9_.]+@[a-z0-9.]+[.][a-z]+"  
                 title="Enter valid email ex(example12@gmail.com)"  type="login" required><br><br>
                 <label class="c_lab" pattern="(?=.*\d)(?=.*[@#$%*!^()_+])(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                 title="Enter atleast one upper case and one lower case and one number ,and atleast 8 or more character" 

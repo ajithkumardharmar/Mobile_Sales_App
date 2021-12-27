@@ -147,7 +147,7 @@ margin-right: 200px
 			<li><a href="ViewOrders.jsp">My Orders</a></li>
 			<li><a href="ViewCart.jsp">Cart</a></li>
 			<li><a href="#contact">Contact us</a></li>
-			<li><a href="#about us">About us</a></li>
+			<li><a href="AboutUs.jsp">About us</a></li>
 			<li style="float: right;"><a href="index.jsp">Logout</a></li>
 			<li style="float: right;"><a href="AdminLogin.jsp">Admin</a></li>
 

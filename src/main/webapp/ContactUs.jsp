@@ -1,15 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import ="java.sql.*" import ="com.mobilesalesapp.connection.ConnectionPro"  %>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Mobile Info Page</title>
+<title>ContactUs</title>
 </head>
 <style>
 .h2_1 {
 	text-align: center;
 	background-color: bisque;
+}
+
+.container {
+	background-color: grey;
+
+	
+	padding: 40px;
+	position: absolute;
+	left: 500px;
+	top: 120px;
 }
 
 .top_nav {
@@ -66,6 +76,12 @@
 	margin-top: 120px;
 	margin-left: 240px;
 }
+.b_reg {
+    padding: 12px;
+    margin-left: 50px;
+    background-color: rgb(83, 83, 204);
+    border-radius: 20px;
+}
 
 ul {
 	list-style-type: none;
@@ -100,18 +116,19 @@ li a:hover {
 	margin-top: -270px;
 	font-size: 20px;
 }
-.but_log a{
-	text-decoration:none;
-	color:white;
- 	padding: 12px;
- 	margin-top:20px;
-    margin-left: 100px;
-    background-color: rgb(83, 83, 204);
-    border-radius: 20px;
 
+.but_log a {
+	text-decoration: none;
+	color: white;
+	padding: 12px;
+	margin-top: 20px;
+	margin-left: 100px;
+	background-color: rgb(83, 83, 204);
+	border-radius: 20px;
 }
-.but_log{
-margin-top:40px;
+
+.but_log {
+	margin-top: 40px;
 }
 
 * {
@@ -127,7 +144,7 @@ margin-top:40px;
 		<ul>
 			<li><a class="active" href="MobilePage.jsp">Home</a></li>
 			<li><a href="ViewOrders.jsp">My Orders</a></li>
-            <li><a href="ViewCart.jsp">Cart</a></li>
+			<li><a href="ViewCart.jsp">Cart</a></li>
 			<li><a href="#contact">Contact us</a></li>
 			<li><a href="AboutUs.jsp">About us</a></li>
 			<li style="float: right;"><a href="index.jsp">Logout</a></li>
@@ -137,36 +154,27 @@ margin-top:40px;
 
 
 	</div>
-	<%session.setAttribute("productId", 44);
-	 
-	  int productId=(int)session.getAttribute("productId"); 
-	  String query="select * from products where pk_product_id= ?";
-	  Connection con=ConnectionPro.connect();
-	  PreparedStatement pre=con.prepareStatement(query);
-	  pre.setInt(1, productId);
-	  ResultSet rs=pre.executeQuery();
-	  if(rs.next()){
-	  %>
-	<div class="body_main">
-	
-		<a><img id="41"
-			src="<%=rs.getString(6) %>"
-			alt=""></a>
-		<div class="phoneInfo">
-			<pre><%=rs.getString(3) %>
-</pre>
-
-			<div class="but_log">
-				<a href="addCart">Add Cart</a> 
-				<a href="MobileBuy.jsp">Buy</a>
-			</div>
-		</div>
+	<div class="container">
+		<h1>Contact Us</h1><br>
+		<form action="contactUs" method="post" >
+		<label for="">Name:</label><br> <input class="c_user2"
+			name="name1" type="text" autocomplete="off" pattern="[A-Za-z]{3,40}"
+			title="Only enter A-Z ,a-z and enter  min 3 to max 40 " required><br>
+		<br> <label for="">Email:</label><br> <input class="c_user2"
+			name="email" autocomplete="off" pattern="[a-z][a-z0-9_.]+@[a-z0-9.]+[.][a-z]+"
+			type="email" title="Enter valid email ex(example12@gmail.com)"
+			required><br>
+		<br> <label for="">Phone number:</label><br> <input
+			class="c_user2" autocomplete="off" name="phone_number" type="text"
+			pattern="[6789]{1}+[0-9]{9}" maxlength="10"
+			title="Enter only 10 digit number" required><br>
+		<br> Description : <br>
+		<input style="width: 200px; autocomplete="off" height: 50px;" name="description"
+			required pattern="[a-zA-Z0-9\s,[]]{3,40}" rows="5"
+			cols="50" type="text"><br>
+		<br>
+		   <button type="submit" class="b_reg">Submit</button>
 	</div>
-	<%double price= rs.getDouble(5);
-	session.setAttribute("price",price);
-	} %>
- 
-
-
+	</form>
 </body>
 </html>

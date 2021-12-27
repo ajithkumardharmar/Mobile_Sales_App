@@ -20,9 +20,11 @@ public class OrderServlet extends HttpServlet {
 		int userId1 = Integer.parseInt(user);
 		int userId = userId1;
 		int productId = (int) session.getAttribute("productId");
-		String address = req.getParameter("address");
-		String pincode = req.getParameter("pincode");
-		String fullAddress = address + "-" + pincode;
+		String address1 = req.getParameter("address1");
+		String address2 = req.getParameter("address2");
+		String pincode = "Pincode-"+req.getParameter("pincode");
+		String phoneNumber = req.getParameter("phone_number");
+		String fullAddress = address1+","+address2+"," +phoneNumber+","  + pincode;
 		String password = req.getParameter("password");
 		double price = (double) session.getAttribute("total");
 		System.out.println(userId + productId + fullAddress + password + price + userId);
