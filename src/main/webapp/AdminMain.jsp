@@ -74,7 +74,7 @@
            
             <li style="float: right;"><a href="AdminLogin.jsp">Sign out</a></li>
             <li style="float: right;"><a class="active" href="AdminMain.jsp">Admin</a></li>
-            <li><a href="#contact">Contact us</a></li>
+            <li><a href="ContactUs.jsp">Contact us</a></li>
             <li><a href="AboutUs.jsp">About us</a></li>
             
 
